@@ -3,6 +3,7 @@
 @section('title', 'Achievements | Pajo National High School - SHS')
 
 @section('content')
+
     {{-- PAGE HEADER --}}
     <section class="bg-gradient-to-br from-green-950 to-green-900 text-white py-16">
         <div class="max-w-6xl mx-auto px-4 text-center">
@@ -11,70 +12,91 @@
         </div>
     </section>
 
-    {{-- ACHIEVEMENTS GRID (ALL SCHOOL ACHIEVEMENTS) --}}
+    {{-- GALLERY GRID --}}
     <section class="max-w-6xl mx-auto px-4 py-16">
-        <div class="grid gap-8 md:grid-cols-3">
-            
-            {{-- Item 1 --}}
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group">
-                <div class="h-52 bg-gray-100 overflow-hidden relative">
-                    <img src="{{ asset('images/achievements/academic-excellence.jpg') }}" alt="Lapu-Lapu City Division Research Honoree" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-semibold text-green-700 uppercase tracking-wider bg-green-50 px-2.5 py-1 rounded-md">Academic Track</span>
-                    <h3 class="font-bold text-gray-900 text-lg mt-3 mb-2 group-hover:text-green-800 transition">Lapu-Lapu City Division Research Honoree</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Pajo SHS Grade 12 research teams recognized for exceptional qualitative and scientific papers during the division-wide evaluation.</p>
-                </div>
-            </div>
 
-            {{-- Item 2 --}}
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group">
-                <div class="h-52 bg-gray-100 overflow-hidden relative">
-                    <img src="{{ asset('images/achievements/science-fair.jpg') }}" alt="Regional Tech-Voc Skills Exhibition" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-semibold text-green-700 uppercase tracking-wider bg-green-50 px-2.5 py-1 rounded-md">TVL Track</span>
-                    <h3 class="font-bold text-gray-900 text-lg mt-3 mb-2 group-hover:text-green-800 transition">Regional Tech-Voc Skills Exhibition</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Senior high TVL students securing podium finishes in practical craftsmanship, computer systems, and industrial technology tasks.</p>
-                </div>
+        @if ($images->isEmpty())
+            <p class="text-center text-gray-500">Achievement photos will be posted here soon.</p>
+        @else
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
+                @foreach ($images as $i => $image)
+                    <button type="button"
+                            class="gallery-item block w-full mb-5 rounded-xl overflow-hidden shadow-sm border border-gray-200/80 hover:shadow-xl transition-all duration-300 group break-inside-avoid focus:outline-none focus:ring-2 focus:ring-green-700"
+                            data-index="{{ $i }}">
+                        <img src="{{ $image['thumb'] }}"
+                             alt="{{ $image['alt'] }}"
+                             loading="lazy"
+                             class="w-full h-auto object-cover group-hover:scale-105 transition duration-500">
+                    </button>
+                @endforeach
             </div>
-
-            {{-- Item 3 --}}
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group">
-                <div class="h-52 bg-gray-100 overflow-hidden relative">
-                    <img src="{{ asset('images/achievements/sports-champions.jpg') }}" alt="CVIRAA Athletic Meet Contenders" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-semibold text-green-700 uppercase tracking-wider bg-green-50 px-2.5 py-1 rounded-md">Extracurricular</span>
-                    <h3 class="font-bold text-gray-900 text-lg mt-3 mb-2 group-hover:text-green-800 transition">CVIRAA Athletic Meet Contenders</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Pajo student-athletes displaying immense discipline, teamwork, and sportsmanship representing the school in regional sports leagues.</p>
-                </div>
-            </div>
-
-            {{-- Item 4 --}}
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group">
-                <div class="h-52 bg-gray-100 overflow-hidden relative">
-                    <img src="{{ asset('images/achievements/sports-champions-2.jpg') }}" alt="Regional Sports & Martial Arts Excellence" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-semibold text-green-700 uppercase tracking-wider bg-green-50 px-2.5 py-1 rounded-md">Athletics</span>
-                    <h3 class="font-bold text-gray-900 text-lg mt-3 mb-2 group-hover:text-green-800 transition">Regional Sports & Martial Arts Champions</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Pajo SHS delegates showcasing exceptional prowess, discipline, and winning medals in multi-sport competitions and martial arts tournaments.</p>
-                </div>
-            </div>
-
-            {{-- Item 5 --}}
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group">
-                <div class="h-52 bg-gray-100 overflow-hidden relative">
-                    <img src="{{ asset('images/achievements/science-math-press.jpg') }}" alt="Division Schools Press Conference & Science Fair" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-semibold text-green-700 uppercase tracking-wider bg-green-50 px-2.5 py-1 rounded-md">Academic & Journalism</span>
-                    <h3 class="font-bold text-gray-900 text-lg mt-3 mb-2 group-hover:text-green-800 transition">Division Schools Press Conference & Science Fair</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Participating delegates and student writers showcasing excellence in journalism, mathematical problem-solving, and scientific innovations.</p>
-                </div>
-            </div>
-
-        </div>
+        @endif
     </section>
+
+    {{-- LIGHTBOX --}}
+    <div id="lightbox" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center px-4">
+        <button id="lightbox-close" aria-label="Close" class="absolute top-4 right-5 text-white text-3xl leading-none hover:text-green-300">&times;</button>
+
+        <button id="lightbox-prev" aria-label="Previous" class="absolute left-2 md:left-6 text-white text-4xl leading-none hover:text-green-300 px-2">&#8249;</button>
+
+        <img id="lightbox-image" src="" alt="" class="max-h-[85vh] max-w-full rounded-lg shadow-2xl select-none">
+
+        <button id="lightbox-next" aria-label="Next" class="absolute right-2 md:right-6 text-white text-4xl leading-none hover:text-green-300 px-2">&#8250;</button>
+
+        <div id="lightbox-counter" class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/80 text-sm"></div>
+    </div>
+
+    <script>
+        (function () {
+            const images = @json($images->pluck('full'));
+            if (!images.length) return;
+
+            let current = 0;
+            const lightbox    = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-image');
+            const counter     = document.getElementById('lightbox-counter');
+
+            function open(index) {
+                current = index;
+                render();
+                lightbox.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }
+
+            function close() {
+                lightbox.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+
+            function render() {
+                lightboxImg.src = images[current];
+                counter.textContent = (current + 1) + ' / ' + images.length;
+            }
+
+            function next() { current = (current + 1) % images.length; render(); }
+            function prev() { current = (current - 1 + images.length) % images.length; render(); }
+
+            document.querySelectorAll('.gallery-item').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    open(parseInt(btn.dataset.index, 10));
+                });
+            });
+
+            document.getElementById('lightbox-close').addEventListener('click', close);
+            document.getElementById('lightbox-next').addEventListener('click', next);
+            document.getElementById('lightbox-prev').addEventListener('click', prev);
+
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) close();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (lightbox.classList.contains('hidden')) return;
+                if (e.key === 'Escape') close();
+                if (e.key === 'ArrowRight') next();
+                if (e.key === 'ArrowLeft') prev();
+            });
+        })();
+    </script>
+
 @endsection

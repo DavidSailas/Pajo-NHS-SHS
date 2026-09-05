@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,5 +17,5 @@ Route::prefix('programs')->name('programs.')->group(function () {
 });
 
 Route::get('/faculty', [PageController::class, 'faculty'])->name('faculty');
-Route::get('/achievements', [PageController::class, 'achievements'])->name('achievements');
+Route::get('/achievements', [AchievementController::class, 'index'])->name('achievements');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
