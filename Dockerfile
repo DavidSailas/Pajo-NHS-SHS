@@ -2,8 +2,14 @@
 # Base image bundles Nginx + PHP-FPM and knows how to serve a Laravel /public folder.
 FROM richarvey/nginx-php-fpm:3.1.6
 
+# Get the composer tool so we can install PHP packages during build
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
 # Copy the whole Laravel project into the image
 COPY . .
+
+# Install PHP packages now, during build (this is the fix)
+RUN composer install --no-dev --optimize-autoloader --working-dir=/var/www/html --no-interaction
 
 # --- Image behavior flags ---
 # Point Nginx at Laravel's public/ folder (NOT the project root)
@@ -16,11 +22,10 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 # (this is what triggers 00-laravel-deploy.sh below)
 ENV RUN_SCRIPTS 1
 
-# Send PHP errors to stderr so they show up in Render's log viewer
+# Send PHP errors to stdout so they show up in Render's log viewer
 ENV PHP_ERRORS_STDERR 1
 
-# We install composer dependencies ourselves in the deploy script,
-# so tell the base image not to try to do it a second time.
+# We already installed composer packages above during build, skip it at runtime
 ENV SKIP_COMPOSER 1
 
 # Sensible Laravel production defaults.
