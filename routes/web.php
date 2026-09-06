@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ Route::get('/faculty', [PageController::class, 'faculty'])->name('faculty');
 Route::get('/achievements', [AchievementController::class, 'index'])->name('achievements');
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+
+Route::get('/login', [LoginController::class, 'show'])->name('login');

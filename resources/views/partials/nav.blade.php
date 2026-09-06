@@ -20,7 +20,7 @@
                     About Us <span class="text-xs dropdown-arrow transition-transform">&#9662;</span>
                 </button>
                 <div id="about-dropdown"
-                     class="dropdown-menu hidden md:absolute bg-green-900 md:bg-white md:text-gray-800 md:shadow-lg rounded md:mt-2 md:w-48 py-2 md:py-2 z-30">
+                     class="dropdown-menu hidden md:absolute bg-green-900 md:bg-white md:text-gray-800 md:shadow-lg rounded md:mt-2 md:w-48 py-2 z-30">
                     <a href="{{ route('about.facilities') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Facilities</a>
                     <a href="{{ route('about.laboratories') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Laboratories</a>
                     <a href="{{ route('about.innovations') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">School Innovations</a>
@@ -34,7 +34,7 @@
                     Programs <span class="text-xs dropdown-arrow transition-transform">&#9662;</span>
                 </button>
                 <div id="programs-dropdown"
-                     class="dropdown-menu hidden md:absolute bg-green-900 md:bg-white md:text-gray-800 md:shadow-lg rounded md:mt-2 md:w-48 py-2 md:py-2 z-30">
+                     class="dropdown-menu hidden md:absolute bg-green-900 md:bg-white md:text-gray-800 md:shadow-lg rounded md:mt-2 md:w-48 py-2 z-30">
                     <a href="{{ route('programs.academic') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Academic Track</a>
                     <a href="{{ route('programs.techpro') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Tech-Pro Track</a>
                 </div>
@@ -47,6 +47,21 @@
                 <span class="ml-1 align-top inline-block text-[10px] font-bold bg-orange-500 text-white px-1.5 py-0.5 rounded-full leading-none">NEW</span>
             </a>
             <a href="{{ route('contact') }}" class="block py-2 md:py-0 hover:text-green-300 {{ request()->routeIs('contact') ? 'font-semibold underline' : '' }}">Contact</a>
+
+            {{-- Portal Login dropdown (front-end only for now — no accounts/database yet) --}}
+            <div class="relative py-2 md:py-0">
+                <button type="button" data-dropdown-toggle="portal-dropdown" aria-expanded="false"
+                        class="dropdown-toggle bg-green-700 hover:bg-green-600 md:bg-white md:text-green-900 px-3 py-1.5 rounded font-medium flex items-center gap-1 w-full transition">
+                    Portal Login <span class="text-xs dropdown-arrow transition-transform">&#9662;</span>
+                </button>
+                <div id="portal-dropdown"
+                     class="dropdown-menu hidden md:absolute md:right-0 bg-green-900 md:bg-white md:text-gray-800 md:shadow-lg rounded md:mt-2 md:w-48 py-2 z-30">
+                    <a href="{{ route('login', ['role' => 'parent']) }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Parent Portal</a>
+                    <a href="{{ route('login', ['role' => 'staff']) }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Staff Portal</a>
+                    <a href="{{ route('login', ['role' => 'student']) }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Student Portal</a>
+                    <a href="{{ route('login', ['role' => 'alumni']) }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Alumni Portal</a>
+                </div>
+            </div>
         </nav>
     </div>
 </header>
@@ -63,7 +78,6 @@
             const menu = document.getElementById(toggle.dataset.dropdownToggle);
             const isOpen = !menu.classList.contains('hidden');
 
-            // Close any other open dropdown first
             document.querySelectorAll('.dropdown-menu').forEach(function (m) {
                 m.classList.add('hidden');
             });
@@ -80,7 +94,6 @@
         });
     });
 
-    // Close dropdowns when clicking outside
     document.addEventListener('click', function () {
         document.querySelectorAll('.dropdown-menu').forEach(function (m) {
             m.classList.add('hidden');
