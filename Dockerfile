@@ -9,7 +9,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 COPY . .
 
 # Install PHP packages now, during build (this is the fix)
-RUN composer install --no-dev --optimize-autoloader --working-dir=/var/www/html --no-interaction
+RUN composer update --no-dev --optimize-autoloader --working-dir=/var/www/html --no-interaction
 
 # --- Image behavior flags ---
 # Point Nginx at Laravel's public/ folder (NOT the project root)
