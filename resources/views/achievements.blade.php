@@ -12,8 +12,45 @@
         </div>
     </section>
 
+    {{-- STUDENT & FACULTY ACHIEVERS (S.Y. 2024-2025) --}}
+    <section class="max-w-6xl mx-auto px-4 py-16 border-t border-gray-100">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs font-bold text-green-700 uppercase tracking-widest bg-green-100/70 px-3 py-1 rounded-full">S.Y. 2024–2025</span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight mt-3">Student & Faculty Achievers</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 p-6">
+                <span class="inline-block text-xs font-semibold text-green-700 uppercase tracking-wider bg-green-50 px-2.5 py-1 rounded-md mb-3">HUMSS</span>
+                <ul class="text-sm text-gray-700 space-y-2">
+                    <li>1st Place, District Values Month Poster Making Contest</li>
+                    <li>2nd Place, District Values Month Collage Making Contest</li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 p-6">
+                <span class="inline-block text-xs font-semibold text-green-700 uppercase tracking-wider bg-green-50 px-2.5 py-1 rounded-md mb-3">Journalism</span>
+                <ul class="text-sm text-gray-700 space-y-2">
+                    <li><span class="font-medium text-gray-900">Aerica Allysa Seballos</span> — 2nd Place (District), Science and Technology Writing (English); Participant, Division Schools Press Conference</li>
+                    <li><span class="font-medium text-gray-900">Sharwee Eviota</span> — 3rd Place (District), Sports Writing (Filipino); 2nd Place (Division), Schools Press Conference; Delegate, Regional Schools Press Conference (Siquijor)</li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 p-6">
+                <span class="inline-block text-xs font-semibold text-green-700 uppercase tracking-wider bg-green-50 px-2.5 py-1 rounded-md mb-3">Sports & Extracurriculars</span>
+                <ul class="text-sm text-gray-700 space-y-2">
+                    <li><span class="font-medium text-gray-900">Ferdinand Vivien Corbo Grafia</span> — Champion, District Basketball Meet</li>
+                    <li><span class="font-medium text-gray-900">Nicole Ann Joy Sequillo</span> — 3rd Placer, Miss City Palaro</li>
+                    <li>Active school participation in Dancesports and Billiards</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
     {{-- GALLERY GRID --}}
-    <section class="max-w-6xl mx-auto px-4 py-16">
+    <section class="max-w-6xl mx-auto px-4 pb-16">
 
         @if ($images->isEmpty())
             <p class="text-center text-gray-500">Achievement photos will be posted here soon.</p>

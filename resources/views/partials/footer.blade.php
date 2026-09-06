@@ -25,6 +25,7 @@
                 <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
                 <li><a href="{{ route('about.facilities') }}" class="hover:text-white transition">Facilities</a></li>
                 <li><a href="{{ route('about.laboratories') }}" class="hover:text-white transition">Laboratories</a></li>
+                <li><a href="{{ route('news') }}" class="hover:text-white transition">News & Updates</a></li>
                 <li><a href="{{ route('programs.academic') }}" class="hover:text-white transition">Academic Track</a></li>
                 <li><a href="{{ route('programs.techpro') }}" class="hover:text-white transition">Tech-Pro Track</a></li>
                 <li><a href="{{ route('faculty') }}" class="hover:text-white transition">Faculty & Staff</a></li>
