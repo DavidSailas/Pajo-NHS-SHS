@@ -129,7 +129,8 @@
                             PSA/NSO Birth Certificate (photocopy)
                         </li>
                     </ul>
-                    <a href="{{ route('contact') }}" class="inline-block mt-5 bg-green-800 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-green-900 transition text-sm">
+                    <a href="https://pnhs.edukonek.com/login" target="_blank" rel="noopener noreferrer"
+                        class="inline-block mt-5 bg-green-800 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-green-900 transition text-sm">
                         Get in Touch to Enroll
                     </a>
                 </div>

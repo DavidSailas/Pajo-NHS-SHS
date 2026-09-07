@@ -16,14 +16,14 @@
             {{-- About Us dropdown --}}
             <div class="relative py-2 md:py-0">
                 <button type="button" data-dropdown-toggle="about-dropdown" aria-expanded="false"
-                        class="dropdown-toggle hover:text-green-300 flex items-center gap-1 w-full">
+                        class="dropdown-toggle hover:text-green-300 flex items-center gap-1 w-full {{ request()->routeIs('about.facilities-laboratories') || request()->routeIs('about.innovations') || request()->routeIs('about.performance') ? 'font-semibold underline' : '' }}">
                     About Us <span class="text-xs dropdown-arrow transition-transform">&#9662;</span>
                 </button>
                 <div id="about-dropdown"
-                     class="dropdown-menu hidden md:absolute bg-green-900 md:bg-white md:text-gray-800 md:shadow-lg rounded md:mt-2 md:w-48 py-2 z-30">
-                    <a href="{{ route('about.facilities') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Facilities</a>
-                    <a href="{{ route('about.laboratories') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Laboratories</a>
+                     class="dropdown-menu hidden md:absolute bg-green-900 md:bg-white md:text-gray-800 md:shadow-lg rounded md:mt-2 md:w-56 py-2 z-30">
+                    <a href="{{ route('about.facilities-laboratories') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Facilities & Laboratories</a>
                     <a href="{{ route('about.innovations') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">School Innovations</a>
+                    <a href="{{ route('about.performance') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Performance Indicators</a>
                 </div>
             </div>
 
@@ -37,10 +37,10 @@
                      class="dropdown-menu hidden md:absolute bg-green-900 md:bg-white md:text-gray-800 md:shadow-lg rounded md:mt-2 md:w-48 py-2 z-30">
                     <a href="{{ route('programs.academic') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Academic Track</a>
                     <a href="{{ route('programs.techpro') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">Tech-Pro Track</a>
+                    <a href="{{ route('als') }}" class="block px-4 py-2 hover:bg-green-700 md:hover:bg-gray-100">ALS SHS</a>
                 </div>
             </div>
 
-            <a href="{{ route('faculty') }}" class="block py-2 md:py-0 hover:text-green-300 {{ request()->routeIs('faculty') ? 'font-semibold underline' : '' }}">Faculty & Staff</a>
             <a href="{{ route('achievements') }}" class="block py-2 md:py-0 hover:text-green-300 {{ request()->routeIs('achievements') ? 'font-semibold underline' : '' }}">Achievements</a>
             <a href="{{ route('news') }}" class="relative block py-2 md:py-0 hover:text-green-300 {{ request()->routeIs('news') ? 'font-semibold underline' : '' }}">
                 News
@@ -48,10 +48,15 @@
             </a>
             <a href="{{ route('contact') }}" class="block py-2 md:py-0 hover:text-green-300 {{ request()->routeIs('contact') ? 'font-semibold underline' : '' }}">Contact</a>
 
+            <a href="{{ route('enroll') }}"
+               class="block text-center py-2 md:py-1.5 px-4 rounded font-semibold bg-amber-400 text-green-900 hover:bg-amber-300 transition">
+                Enroll Now
+            </a>
+
             {{-- Portal Login dropdown (front-end only for now — no accounts/database yet) --}}
             <div class="relative py-2 md:py-0">
                 <button type="button" data-dropdown-toggle="portal-dropdown" aria-expanded="false"
-                        class="dropdown-toggle bg-green-700 hover:bg-green-600 md:bg-white md:text-green-900 px-3 py-1.5 rounded font-medium flex items-center gap-1 w-full transition">
+                        class="dropdown-toggle border border-white/60 hover:bg-white/10 md:border-white/70 text-white px-3 py-1.5 rounded font-medium flex items-center gap-1 w-full transition">
                     Portal Login <span class="text-xs dropdown-arrow transition-transform">&#9662;</span>
                 </button>
                 <div id="portal-dropdown"

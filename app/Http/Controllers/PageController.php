@@ -11,14 +11,9 @@ class PageController extends Controller
         ]);
     }
 
-    public function facilities()
+    public function facilitiesLaboratories()
     {
-        return view('about.facilities');
-    }
-
-    public function laboratories()
-    {
-        return view('about.laboratories');
+        return view('about.facilities-laboratories');
     }
 
     public function innovations()
@@ -34,11 +29,6 @@ class PageController extends Controller
     public function techProTrack()
     {
         return view('programs.techpro');
-    }
-
-    public function faculty()
-    {
-        return view('faculty');
     }
 
     public function achievements()

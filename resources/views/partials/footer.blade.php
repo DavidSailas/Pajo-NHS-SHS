@@ -16,6 +16,7 @@
             <p class="text-sm">
                 <a href="mailto:303184@deped.gov.ph" class="hover:text-white transition">303184@deped.gov.ph</a>
             </p>
+            <p class="text-sm">Tel. No.: 266-4123</p>
         </div>
 
         {{-- QUICK LINKS --}}
@@ -23,12 +24,11 @@
             <h3 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Quick Links</h3>
             <ul class="text-sm space-y-2">
                 <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
-                <li><a href="{{ route('about.facilities') }}" class="hover:text-white transition">Facilities</a></li>
-                <li><a href="{{ route('about.laboratories') }}" class="hover:text-white transition">Laboratories</a></li>
+                <li><a href="{{ route('about.facilities-laboratories') }}" class="hover:text-white transition">Facilities & Laboratories</a></li>
                 <li><a href="{{ route('news') }}" class="hover:text-white transition">News & Updates</a></li>
                 <li><a href="{{ route('programs.academic') }}" class="hover:text-white transition">Academic Track</a></li>
                 <li><a href="{{ route('programs.techpro') }}" class="hover:text-white transition">Tech-Pro Track</a></li>
-                <li><a href="{{ route('faculty') }}" class="hover:text-white transition">Faculty & Staff</a></li>
+                <li><a href="{{ route('about.facilities-laboratories') }}#faculty" class="hover:text-white transition">Faculty & Staff</a></li>
                 <li><a href="{{ route('achievements') }}" class="hover:text-white transition">Achievements</a></li>
                 <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact</a></li>
             </ul>

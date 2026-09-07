@@ -46,6 +46,18 @@
                             <a href="mailto:303184@deped.gov.ph" class="text-stone-800 mt-0.5 hover:text-[#12432c] hover:underline">303184@deped.gov.ph</a>
                         </div>
                     </div>
+
+                    <div class="flex gap-3">
+                        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#12432c]/10">
+                            <svg class="h-5 w-5 text-[#12432c]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-1.687.843a11.037 11.037 0 005.516 5.516l.844-1.687a1 1 0 011.21-.502l4.492 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold text-stone-400 uppercase tracking-wide">Tel. No.</p>
+                            <a href="tel:266-4123" class="text-stone-800 mt-0.5 hover:text-[#12432c] hover:underline">266-4123</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 

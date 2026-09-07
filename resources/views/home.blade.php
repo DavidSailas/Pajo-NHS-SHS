@@ -5,60 +5,85 @@
 @section('content')
 
     {{-- HERO SECTION --}}
-    <section class="relative bg-gradient-to-br from-green-950 via-green-900 to-emerald-950 text-white py-20 md:py-28 overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
-        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
-            <span class="inline-flex items-center gap-2 bg-green-800/80 text-green-200 text-xs font-medium px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-6 border border-green-700/60 shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Official Senior High School Portal
-            </span>
-            <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">Welcome to Pajo National High School <span class="text-emerald-400">- SHS</span></h1>
-            <p class="text-base md:text-xl text-green-100 max-w-2xl mx-auto mb-12 font-light leading-relaxed">Empowering minds, shaping characters, and building pathways to success. Your future starts here with quality public education in Lapu-Lapu City.</p>
+<section class="relative bg-green-950 text-white overflow-hidden w-full min-h-[550px] md:min-h-[700px] flex items-center justify-center">
+    {{-- Background Video Container --}}
+    <div id="promo-video-wrapper" class="absolute inset-0 w-full h-full overflow-hidden bg-green-950 z-0">
+        {{-- Video with sound enabled --}}
+        <video id="promo-video" class="w-full h-full object-cover" preload="auto" playsinline>
+            <source src="{{ asset('videos/promo.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        {{-- Consistent professional dark tint overlay --}}
+        <div id="promo-video-tint" class="absolute inset-0 bg-black/40 pointer-events-none transition-opacity duration-500"></div>
+    </div>
 
-            {{-- Promotional Video Container --}}
-            {{-- TODO: replace images/video-poster.jpg with a real thumbnail frame from the promo video --}}
-            <div id="promo-video-wrapper" class="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-green-800/60 bg-gradient-to-br from-green-800 to-green-950 group relative cursor-pointer">
-                <video id="promo-video" class="w-full h-full object-cover" poster="{{ asset('images/video-poster.jpg') }}" preload="metadata">
-                    <source src="{{ asset('videos/promo.mp4') }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+    {{-- Text Content / Play Trigger Overlay --}}
+    <div id="hero-content-overlay" class="max-w-5xl mx-auto px-4 text-center relative z-10 transition-opacity duration-500 w-full my-auto">
+        <span class="inline-flex items-center gap-2 bg-green-800/80 text-green-200 text-xs font-medium px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 md:mb-6 border border-green-700/60 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Official Senior High School Portal
+        </span>
+        <h1 class="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-4 md:mb-6 leading-tight">Welcome to Pajo National High School <span class="text-emerald-400">- SHS</span></h1>
+        <p class="text-sm sm:text-base md:text-xl text-green-100 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed">Empowering minds, shaping characters, and building pathways to success. Your future starts here with quality public education in Lapu-Lapu City.</p>
 
-                {{-- Play overlay — click to reveal controls and start playback --}}
-                <div id="promo-video-overlay" class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 group-hover:bg-black/40 transition">
-                    <button type="button" id="promo-video-play"
-                            class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/95 text-green-900 flex items-center justify-center shadow-xl transform group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 md:w-10 md:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </button>
-                    <p class="mt-5 text-white font-semibold text-sm md:text-base tracking-wide">Watch Our School Story</p>
-                    <p class="text-green-200 text-xs mt-1">9:32</p>
-                </div>
-            </div>
-
-            <script>
-                (function () {
-                    const wrapper = document.getElementById('promo-video-wrapper');
-                    const video   = document.getElementById('promo-video');
-                    const overlay = document.getElementById('promo-video-overlay');
-
-                    function playVideo() {
-                        overlay.classList.add('hidden');
-                        video.setAttribute('controls', 'true');
-                        video.play();
-                    }
-
-                    wrapper.addEventListener('click', playVideo);
-                    video.addEventListener('pause', function () {
-                        if (video.currentTime === 0) overlay.classList.remove('hidden');
-                    });
-                    video.addEventListener('ended', function () {
-                        overlay.classList.remove('hidden');
-                    });
-                })();
-            </script>
+        {{-- Play Button Trigger --}}
+        <div class="flex flex-col items-center justify-center">
+            <button type="button" id="promo-video-play"
+                    class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/95 text-green-900 flex items-center justify-center shadow-xl transform hover:scale-110 transition cursor-pointer">
+                <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </button>
+            <p class="mt-4 text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide drop-shadow">Watch Our School Story</p>
+            <p class="text-green-200 text-xs mt-1 drop-shadow">9:32</p>
         </div>
-    </section>
+    </div>
+
+    <script>
+        (function () {
+            const video   = document.getElementById('promo-video');
+            const content = document.getElementById('hero-content-overlay');
+            const playBtn = document.getElementById('promo-video-play');
+            const tint    = document.getElementById('promo-video-tint');
+
+            // Force video to load and display its first actual frame initially
+            video.currentTime = 0.1;
+
+            function playVideo(e) {
+                e.stopPropagation();
+                // Hide text content smoothly when playing/resuming
+                content.classList.add('opacity-0', 'pointer-events-none');
+                tint.classList.remove('bg-black/40');
+                tint.classList.add('bg-black/25');
+                // Enable native player controls and play
+                video.setAttribute('controls', 'true');
+                video.play();
+            }
+
+            playBtn.addEventListener('click', playVideo);
+
+            // Whenever the video is paused, show the text overlay and remove controls
+            video.addEventListener('pause', function () {
+                // Ensure it doesn't trigger when the video naturally ends or resets
+                if (!video.ended) {
+                    content.classList.remove('opacity-0', 'pointer-events-none');
+                    tint.classList.add('bg-black/40');
+                    tint.classList.remove('bg-black/25');
+                    video.removeAttribute('controls');
+                }
+            });
+            
+            // When video completely finishes playing, bring back the text overlay and reset to start
+            video.addEventListener('ended', function () {
+                content.classList.remove('opacity-0', 'pointer-events-none');
+                tint.classList.add('bg-black/40');
+                tint.classList.remove('bg-black/25');
+                video.removeAttribute('controls');
+                video.currentTime = 0.1;
+            });
+        })();
+    </script>
+</section>
 
     {{-- STATS STRIP (floating card, overlaps hero bottom edge) --}}
     {{-- TODO: replace these placeholder figures with the school's real numbers --}}
@@ -107,7 +132,7 @@
     <section class="max-w-6xl mx-auto px-4 pt-14 relative z-10 mb-20">
         <div class="grid gap-6 md:grid-cols-4">
 
-            <a href="{{ route('about.facilities') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
+            <a href="{{ route('about.facilities-laboratories') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-green-50 text-green-700 flex items-center justify-center font-bold mb-5 group-hover:bg-green-700 group-hover:text-white transition-colors duration-300 shadow-sm">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
@@ -129,7 +154,7 @@
                 <span class="text-xs font-semibold text-green-700 mt-6 flex items-center gap-1 group-hover:translate-x-1 transition-transform">View tracks &rarr;</span>
             </a>
 
-            <a href="{{ route('faculty') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
+            <a href="{{ route('about.facilities-laboratories') }}#faculty" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-green-50 text-green-700 flex items-center justify-center font-bold mb-5 group-hover:bg-green-700 group-hover:text-white transition-colors duration-300 shadow-sm">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -155,20 +180,41 @@
     </section>
 
     {{-- SCHOOL HEAD WELCOME MESSAGE --}}
-    {{-- TODO: swap in a real photo of Glenny E. Laping and her actual welcome message/quote --}}
     <section class="max-w-5xl mx-auto px-4 pb-20">
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden grid md:grid-cols-3">
-            <div class="bg-green-50 flex items-center justify-center p-8 md:p-0">
-                <img src="{{ asset('images/school-head.jpg') }}" alt="Glenny E. Laping, School Head"
-                     class="w-40 h-40 md:w-full md:h-full rounded-full md:rounded-none object-cover">
+        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden grid md:grid-cols-5 md:items-stretch">
+
+            {{-- Photo panel --}}
+            <div class="relative h-72 md:h-auto md:col-span-2 bg-green-950">
+                <img src="{{ asset('images/school-head.jpg') }}"
+                     alt="Glenny E. Laping, School Head of Pajo National High School - SHS"
+                     class="absolute inset-0 h-full w-full object-cover object-top">
+                {{-- subtle brand-color wash to tie the photo into the page palette --}}
+                <div class="absolute inset-0 bg-gradient-to-t from-green-950/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-white/5"></div>
+                <div class="absolute inset-x-0 bottom-0 p-5 md:hidden">
+                    <p class="font-bold text-white text-lg leading-tight drop-shadow">Glenny E. Laping</p>
+                    <p class="text-sm text-green-100/90">School Head, Pajo National High School - SHS</p>
+                </div>
             </div>
-            <div class="md:col-span-2 p-8 md:p-10 flex flex-col justify-center">
-                <span class="text-xs font-bold text-green-700 uppercase tracking-widest bg-green-100/70 px-3 py-1 rounded-full w-fit mb-4">A Message From Our School Head</span>
-                <p class="text-gray-700 text-base md:text-lg leading-relaxed italic mb-4">
+
+            {{-- Message panel --}}
+            <div class="md:col-span-3 relative p-8 md:p-12 flex flex-col justify-center">
+                <svg class="absolute top-6 right-6 md:top-8 md:right-10 w-14 h-14 text-green-700/10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7.17 6A5.17 5.17 0 002 11.17V18h6.83v-6.83H4.5a2.67 2.67 0 012.67-2.67V6zm10 0A5.17 5.17 0 0012 11.17V18h6.83v-6.83H14.5a2.67 2.67 0 012.67-2.67V6z"/>
+                </svg>
+
+                <span class="text-xs font-bold text-green-700 uppercase tracking-widest bg-green-100/70 px-3 py-1 rounded-full w-fit mb-5">A Message From Our School Head</span>
+
+                <p class="relative z-10 text-gray-700 text-base md:text-lg leading-relaxed italic mb-6">
                     "Welcome to Pajo National High School - SHS. Every learner who walks through our gates is given the guidance, resources, and opportunities to grow into a confident, values-driven graduate ready for college, work, or entrepreneurship."
                 </p>
-                <p class="font-bold text-gray-900">Glenny E. Laping</p>
-                <p class="text-sm text-gray-500">School Head, Pajo National High School - SHS</p>
+
+                <div class="hidden md:flex items-center gap-4 pt-5 border-t border-gray-100">
+                    <span class="h-9 w-1 rounded-full bg-green-700"></span>
+                    <div>
+                        <p class="font-bold text-gray-900 text-lg leading-tight">Glenny E. Laping</p>
+                        <p class="text-sm text-gray-500">School Head, Pajo National High School - SHS</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -193,27 +239,83 @@
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-xs font-bold text-green-700 uppercase tracking-widest bg-green-100/70 px-3 py-1 rounded-full">The Voyager</span>
             <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight mt-3">Latest News & Updates</h2>
-            <p class="text-base text-gray-600 mt-3">Stories and announcements from the official newsletter of Pajo Senior High School.</p>
+            <p class="text-base text-gray-600 mt-3">Announcements, advisories, and official newsletter issues from Pajo National High School - SHS[cite: 3].</p>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-3">
-            @foreach ($homeNews as $post)
-                <article class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group">
-                    <div class="h-40 bg-gradient-to-br from-green-800 to-green-950 flex items-center justify-center relative">
-                        <svg class="w-9 h-9 text-green-300/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $post['icon'] }}"/>
-                        </svg>
-                        <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full {{ $homeNewsBadge[$post['category']] ?? 'bg-gray-100 text-gray-700' }}">
-                            {{ $post['category'] }}
-                        </span>
-                    </div>
-                    <div class="p-5">
-                        <p class="text-xs text-gray-400 font-medium mb-1.5">{{ $post['date'] }}</p>
-                        <p class="font-semibold text-gray-900 leading-snug group-hover:text-green-800 transition">{{ $post['title'] }}</p>
-                        <p class="text-sm text-gray-500 mt-1.5 leading-relaxed">{{ $post['excerpt'] }}</p>
-                    </div>
-                </article>
-            @endforeach
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-16">
+            
+            {{-- ISSUE NO. 70 (AUG 2026) --}}
+            <article class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group flex flex-col">
+                <div class="h-48 bg-gray-100 overflow-hidden relative">
+                    <img src="{{ asset('images/news/issue-70.jpg') }}" alt="Issue No. 70" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 shadow-sm">
+                        Issue No. 70
+                    </span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-xs text-gray-400 font-medium mb-1">August 4, 2026</p>
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-green-800 transition">Nourishing Excellence: Nutrition Month 2026</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed flex-1">Pajo SHS recognizes Nutrition Month 2026 winners and promotes healthy, active lifestyles across all strands.</p>
+                    <a href="{{ route('news') }}" class="text-xs font-semibold text-green-700 mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        Read Issue &rarr;
+                    </a>
+                </div>
+            </article>
+
+            {{-- ISSUE NO. 71 (AUG 2026) --}}
+            <article class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group flex flex-col">
+                <div class="h-48 bg-gray-100 overflow-hidden relative">
+                    <img src="{{ asset('images/news/issue-71.jpg') }}" alt="Issue No. 71" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-green-100 text-green-800 shadow-sm">
+                        Issue No. 71
+                    </span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-xs text-gray-400 font-medium mb-1">August 17, 2026</p>
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-green-800 transition">Buwan ng Wika Kickoff</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed flex-1">Pajo SHS opens Buwan ng Wika celebration featuring Likhang Awit, Lakan at Lakambini competitions.</p>
+                    <a href="{{ route('news') }}" class="text-xs font-semibold text-green-700 mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        Read Issue &rarr;
+                    </a>
+                </div>
+            </article>
+
+            {{-- ISSUE NO. 72 (AUG 2026) --}}
+            <article class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group flex flex-col">
+                <div class="h-48 bg-gray-100 overflow-hidden relative">
+                    <img src="{{ asset('images/news/issue-72.jpg') }}" alt="Issue No. 72" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-orange-100 text-orange-800 shadow-sm">
+                        Issue No. 72
+                    </span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-xs text-gray-400 font-medium mb-1">August 17, 2026</p>
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-green-800 transition">Journalism Training Workshop</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed flex-1">Pajo SHS student journalists attend Division Journalism Training at Lo-ok National High School.</p>
+                    <a href="{{ route('news') }}" class="text-xs font-semibold text-green-700 mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        Read Issue &rarr;
+                    </a>
+                </div>
+            </article>
+
+            {{-- ISSUE NO. 73 (AUG 2026) --}}
+            <article class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group flex flex-col">
+                <div class="h-48 bg-gray-100 overflow-hidden relative">
+                    <img src="{{ asset('images/news/issue-73.jpg') }}" alt="Issue No. 73" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 shadow-sm">
+                        Issue No. 73
+                    </span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-xs text-gray-400 font-medium mb-1">August 21, 2026</p>
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-2 group-hover:text-green-800 transition">Wraps Up Buwan ng Wika 2026</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed flex-1">Filipino Language in Motion: Pajo SHS concludes month-long cultural festivities and honors event winners.</p>
+                    <a href="{{ route('news') }}" class="text-xs font-semibold text-green-700 mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        Read Issue &rarr;
+                    </a>
+                </div>
+            </article>
+
         </div>
 
         <div class="text-center mt-10">

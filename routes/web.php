@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::prefix('about')->name('about.')->group(function () {
-    Route::get('/facilities', [PageController::class, 'facilities'])->name('facilities');
-    Route::get('/laboratories', [PageController::class, 'laboratories'])->name('laboratories');
+    Route::get('/facilities-laboratories', [PageController::class, 'facilitiesLaboratories'])->name('facilities-laboratories');
     Route::get('/innovations', [PageController::class, 'innovations'])->name('innovations');
+    Route::view('/performance-indicators', 'performance-indicators')->name('performance');
 });
 
 Route::prefix('programs')->name('programs.')->group(function () {
@@ -18,9 +18,10 @@ Route::prefix('programs')->name('programs.')->group(function () {
     Route::get('/tech-pro', [PageController::class, 'techProTrack'])->name('techpro');
 });
 
-Route::get('/faculty', [PageController::class, 'faculty'])->name('faculty');
 Route::get('/achievements', [AchievementController::class, 'index'])->name('achievements');
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::view('/als-shs', 'als')->name('als');
+Route::view('/enroll', 'enroll')->name('enroll');
 
 Route::get('/login', [LoginController::class, 'show'])->name('login');
