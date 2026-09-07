@@ -18,5 +18,8 @@
 
     @include('partials.footer')
 
+    {{-- Add this line so pushed scripts can render --}}
+    @stack('scripts')
+
 </body>
 </html>
