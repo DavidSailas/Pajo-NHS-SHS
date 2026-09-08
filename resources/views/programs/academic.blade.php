@@ -4,7 +4,6 @@
 
 @section('content')
 
-    {{-- MOCK DATA: swap for real strand details once confirmed with the school --}}
     @php
         $strands = [
             [
@@ -129,7 +128,8 @@
                             PSA/NSO Birth Certificate (photocopy)
                         </li>
                     </ul>
-                    <a href="https://pnhs.edukonek.com/login" target="_blank" rel="noopener noreferrer"
+                    <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=gKvjQCQgo0W_dnoHYaJNKU0uGeaaF3ZHsreFwDBfVN1UMFlVMFVZS0hJUU1PVzgxUlVUNTc1TUNPWC4u&route=shorturl" 
+                       target="_blank" rel="noopener noreferrer"
                         class="inline-block mt-5 bg-green-800 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-green-900 transition text-sm">
                         Get in Touch to Enroll
                     </a>

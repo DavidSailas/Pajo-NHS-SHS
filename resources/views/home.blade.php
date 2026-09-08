@@ -132,15 +132,26 @@
     <section class="max-w-6xl mx-auto px-4 pt-14 relative z-10 mb-20">
         <div class="grid gap-6 md:grid-cols-4">
 
-            <a href="{{ route('about.facilities-laboratories') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
+            <a href="{{ route('about.facilities') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-green-50 text-green-700 flex items-center justify-center font-bold mb-5 group-hover:bg-green-700 group-hover:text-white transition-colors duration-300 shadow-sm">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                     </div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-2 group-hover:text-green-800 transition">Facilities & Labs</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">See our campus classrooms, computer laboratories, and specialized workshop spaces.</p>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2 group-hover:text-green-800 transition">Facilities</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">See our campus classrooms, shared spaces, and school infrastructure.</p>
                 </div>
                 <span class="text-xs font-semibold text-green-700 mt-6 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Explore facilities &rarr;</span>
+            </a>
+
+            <a href="{{ route('about.laboratories') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-green-50 text-green-700 flex items-center justify-center font-bold mb-5 group-hover:bg-green-700 group-hover:text-white transition-colors duration-300 shadow-sm">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2 group-hover:text-green-800 transition">Laboratories</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Discover our computer laboratories and specialized technical workshop spaces.</p>
+                </div>
+                <span class="text-xs font-semibold text-green-700 mt-6 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Explore labs &rarr;</span>
             </a>
 
             <a href="{{ route('programs.academic') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
@@ -154,7 +165,7 @@
                 <span class="text-xs font-semibold text-green-700 mt-6 flex items-center gap-1 group-hover:translate-x-1 transition-transform">View tracks &rarr;</span>
             </a>
 
-            <a href="{{ route('about.facilities-laboratories') }}#faculty" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
+            <a href="{{ route('about.faculty-staff') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-green-50 text-green-700 flex items-center justify-center font-bold mb-5 group-hover:bg-green-700 group-hover:text-white transition-colors duration-300 shadow-sm">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -163,17 +174,6 @@
                     <p class="text-sm text-gray-600 leading-relaxed">Meet our dedicated SHS teachers and strand coordinators guiding our learners.</p>
                 </div>
                 <span class="text-xs font-semibold text-green-700 mt-6 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Meet faculty &rarr;</span>
-            </a>
-
-            <a href="{{ route('achievements') }}" class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-green-600 transition-all duration-300 group flex flex-col justify-between transform hover:-translate-y-1">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-green-50 text-green-700 flex items-center justify-center font-bold mb-5 group-hover:bg-green-700 group-hover:text-white transition-colors duration-300 shadow-sm">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-2 group-hover:text-green-800 transition">Achievements</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Discover our student recognitions across Lapu-Lapu City and Central Visayas.</p>
-                </div>
-                <span class="text-xs font-semibold text-green-700 mt-6 flex items-center gap-1 group-hover:translate-x-1 transition-transform">View achievements &rarr;</span>
             </a>
 
         </div>
@@ -220,12 +220,6 @@
     </section>
 
     {{-- LATEST NEWS & UPDATES --}}
-    {{--
-        $homeNews is passed in from PageController@home (currently mock data —
-        see PageController::newsPosts()). Swap that method's body for a real
-        News/Announcement model query whenever one exists; this view doesn't
-        need to change.
-    --}}
     @php
         $homeNews = $homeNews ?? [];
         $homeNewsBadge = [
@@ -413,11 +407,6 @@
     </section>
 
     {{-- CAMPUS LIFE PHOTO STRIP --}}
-    {{--
-        MOCK DATA: these are stand-in cards (gradient + icon + caption) until real
-        day-to-day campus/student-life photos are available. Once photos exist,
-        swap each card's inner <svg> block for an <img src="{{ asset('images/campus-life/N.jpg') }}">.
-    --}}
     @php
         $campusLife = [
             [

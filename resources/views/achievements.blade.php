@@ -49,18 +49,95 @@
         </div>
     </section>
 
+    {{-- SPECIAL PROJECTS & INITIATIVES SHOWCASE --}}
+    <section class="max-w-6xl mx-auto px-4 pb-16">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs font-bold text-green-700 uppercase tracking-widest bg-green-100/70 px-3 py-1 rounded-full">Innovation & Support</span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight mt-3">School Flagship Projects</h2>
+            <p class="text-base text-gray-600 mt-3">Specialized programs and safety initiatives led by our faculty and administration.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            
+            {{-- Project G.E.A.R --}}
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition flex flex-col group">
+                <div class="h-56 bg-gray-100 overflow-hidden relative cursor-pointer gallery-item" data-index="0">
+                    <img src="{{ asset('images/achievements/project-gear.jpg') }}" alt="Project G.E.A.R - Good Equipment Adheres Resiliency" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-red-100 text-red-800 shadow-sm">
+                        DRRM Initiative
+                    </span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-1">Project G.E.A.R</h3>
+                    <p class="text-xs font-medium text-green-700 mb-2">Good Equipment Adheres Resiliency</p>
+                    <p class="text-xs text-gray-600 leading-relaxed flex-1">Ensuring campus safety, disaster preparedness, and resilience through proper emergency equipment and training.</p>
+                </div>
+            </div>
+
+            {{-- Project Reading --}}
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition flex flex-col group">
+                <div class="h-56 bg-gray-100 overflow-hidden relative cursor-pointer gallery-item" data-index="1">
+                    <img src="{{ asset('images/achievements/project-reading.jpg') }}" alt="Project READING - Reinforcing English Achievement through Development in Integrated Grammar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 shadow-sm">
+                        Academic
+                    </span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-1">Project READING</h3>
+                    <p class="text-xs font-medium text-green-700 mb-2">Led by Dr. Julian John N. Limutan</p>
+                    <p class="text-xs text-gray-600 leading-relaxed flex-1">Reinforcing English Achievement through Development in Integrated Grammar to elevate student literacy comprehension.</p>
+                </div>
+            </div>
+
+            {{-- Project S.A.G.I.P --}}
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition flex flex-col group">
+                <div class="h-56 bg-gray-100 overflow-hidden relative cursor-pointer gallery-item" data-index="2">
+                    <img src="{{ asset('images/achievements/project-sagip.jpg') }}" alt="Project S.A.G.I.P - Student Assistance Grants for Indigent Pupils" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 shadow-sm">
+                        Support Program
+                    </span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-1">Project S.A.G.I.P</h3>
+                    <p class="text-xs font-medium text-green-700 mb-2">Student Assistance Grants</p>
+                    <p class="text-xs text-gray-600 leading-relaxed flex-1">School-based financial assistance and support program providing educational aid for deserving learners.</p>
+                </div>
+            </div>
+
+            {{-- Project 3Es --}}
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition flex flex-col group">
+                <div class="h-56 bg-gray-100 overflow-hidden relative cursor-pointer gallery-item" data-index="3">
+                    <img src="{{ asset('images/achievements/project-3es.jpg') }}" alt="Project 3Es - E-Library for Excellent Education" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 shadow-sm">
+                        Digital Learning
+                    </span>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-1">Project 3Es</h3>
+                    <p class="text-xs font-medium text-green-700 mb-2">E-Library for Excellent Education</p>
+                    <p class="text-xs text-gray-600 leading-relaxed flex-1">Modernizing student research and resource accessibility through digital library integration and tech tools.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     {{-- GALLERY GRID --}}
     <section class="max-w-6xl mx-auto px-4 pb-16">
+        <div class="mb-8">
+            <h2 class="text-xl font-bold text-gray-900 border-l-4 border-green-800 pl-3">Achievement Gallery &amp; Moments</h2>
+        </div>
 
         @if ($images->isEmpty())
             <p class="text-center text-gray-500">Achievement photos will be posted here soon.</p>
         @else
             <div class="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
+                {{-- If you have dynamic images array, loop them here. We include the featured project images in the JS array mapping below --}}
                 @foreach ($images as $i => $image)
                     <button type="button"
                             class="gallery-item block w-full mb-5 rounded-xl overflow-hidden shadow-sm border border-gray-200/80 hover:shadow-xl transition-all duration-300 group break-inside-avoid focus:outline-none focus:ring-2 focus:ring-green-700"
-                            data-index="{{ $i }}">
-                        <img src="{{ $image['thumb'] }}"
+                            data-index="{{ $i + 4 }}">
+                        <img src="{{ asset($image['thumb']) }}"
                              alt="{{ $image['alt'] }}"
                              loading="lazy"
                              class="w-full h-auto object-cover group-hover:scale-105 transition duration-500">
@@ -85,7 +162,16 @@
 
     <script>
         (function () {
-            const images = @json($images->pluck('full'));
+            // Combine flagship project images with any dynamic gallery images
+            const flagshipImages = [
+                "{{ asset('images/achievements/project-gear.jpg') }}",
+                "{{ asset('images/achievements/project-reading.jpg') }}",
+                "{{ asset('images/achievements/project-sagip.jpg') }}",
+                "{{ asset('images/achievements/project-3es.jpg') }}"
+            ];
+            const dynamicImages = @json($images->pluck('full'));
+            const images = flagshipImages.concat(dynamicImages);
+
             if (!images.length) return;
 
             let current = 0;

@@ -11,9 +11,14 @@ class PageController extends Controller
         ]);
     }
 
-    public function facilitiesLaboratories()
+    public function facilities()
     {
-        return view('about.facilities-laboratories');
+        return view('about.facilities');
+    }
+
+    public function laboratories()
+    {
+        return view('about.laboratories');
     }
 
     public function innovations()

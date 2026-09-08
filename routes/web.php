@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::prefix('about')->name('about.')->group(function () {
-    Route::get('/facilities-laboratories', [PageController::class, 'facilitiesLaboratories'])->name('facilities-laboratories');
+    Route::view('/facilities', 'about.facilities')->name('facilities');
+    Route::view('/laboratories', 'about.laboratories')->name('laboratories');
+    Route::view('/faculty-staff', 'about.faculty-staff')->name('faculty-staff');
     Route::get('/innovations', [PageController::class, 'innovations'])->name('innovations');
     Route::view('/performance-indicators', 'performance-indicators')->name('performance');
+    Route::view('/citizens-charter', 'citizens-charter')->name('charter');
+    Route::view('/strengthened-shs', 'strengthened-shs')->name('strengthened-shs'); 
 });
 
 Route::prefix('programs')->name('programs.')->group(function () {
