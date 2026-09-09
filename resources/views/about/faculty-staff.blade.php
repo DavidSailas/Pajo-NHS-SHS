@@ -7,47 +7,42 @@
     @php
         $schoolHead = [
             'name' => 'Dr. Glenny E. Laping',
-            'position' => 'Principal II / School Head',
+            'position' => 'School Head',
             'photo' => 'images/teachers/laping-glenny-e.jpg',
             'video' => null,
         ];
 
-        // 4 Non-Teaching Staff (1 with photo, 3 placeholders)
+        // 3 Non-Teaching Staff
         $nonTeachingStaff = [
-            ['name' => 'Staff Member', 'position' => 'Non-Teaching Staff', 'credentials' => '', 'photo' => 'images/teachers/teacher-03.jpg', 'video' => null],
-            ['name' => 'Staff Member', 'position' => 'Non-Teaching Staff', 'credentials' => '', 'photo' => 'images/teachers/placeholder.jpg', 'video' => null],
-            ['name' => 'Staff Member', 'position' => 'Non-Teaching Staff', 'credentials' => '', 'photo' => 'images/teachers/placeholder.jpg', 'video' => null],
-            ['name' => 'Staff Member', 'position' => 'Non-Teaching Staff', 'credentials' => '', 'photo' => 'images/teachers/placeholder.jpg', 'video' => null],
+            ['name' => 'Rubie C. Cosido',        'position' => 'Administrative Officer II', 'credentials' => '', 'photo' => 'images/teachers/cosido-rubie-c.jpg', 'video' => null],
+            ['name' => 'Nastasha Mae D. Baguio', 'position' => 'Registrar',                 'credentials' => '', 'photo' => 'images/teachers/baguio-nastasha-mae-d.jpg', 'video' => null],
+            ['name' => 'Alejandro S. Caballes',  'position' => 'Administrative Assistant II','credentials' => '', 'photo' => 'images/teachers/caballes-alejandro-s.jpg', 'video' => null],
         ];
 
-        // Teaching Staff with exact positions matching the records
+        // Teaching Staff, arranged alphabetically by surname
         $teachers = [
-            ['name' => 'Jennifer P. Gonzaga',    'position' => 'Teacher II',       'credentials' => '', 'photo' => 'images/teachers/gonzaga-jennifer-p.jpg', 'video' => 'videos/teachers/gonzaga-jennifer-p.mp4'],
-            ['name' => 'Jan Ann P. Montejo',     'position' => 'Teacher II',       'credentials' => '', 'photo' => 'images/teachers/montejo-jan-ann-p.jpg', 'video' => 'videos/teachers/montejo-jan-ann-p.mp4'],
-            ['name' => 'Alexis C. Heyrosa',      'position' => 'Master Teacher I', 'credentials' => '', 'photo' => 'images/teachers/heyrosa-alexis-c.jpg', 'video' => 'videos/teachers/heyrosa-alexis-c.mp4'],
-            ['name' => 'Julian John N. Limutan', 'position' => 'Master Teacher I', 'credentials' => '', 'photo' => 'images/teachers/limutan-julian-john-n.jpg', 'video' => 'videos/teachers/limutan-julian-john-n.mp4'],
-            ['name' => 'Glenny B. Abad',           'position' => 'Teacher II',       'credentials' => '', 'photo' => 'images/teachers/abad-glenny-b.jpg', 'video' => 'videos/teachers/abad-glenny-b.mp4'],
-            ['name' => 'Rodetha P. Catadman',      'position' => 'Teacher III',      'credentials' => '', 'photo' => 'images/teachers/catadman-rodetha-p.jpg', 'video' => 'videos/teachers/catadman-rodetha-p.mp4'],
-            ['name' => 'Julieta L. Embralinag',    'position' => 'Teacher III',      'credentials' => '', 'photo' => 'images/teachers/embralinag-julieta-l.jpg', 'video' => 'videos/teachers/embralinag-julieta-l.mp4'],
-            ['name' => 'Aiko J. Epe',              'position' => 'Teacher I',        'credentials' => '', 'photo' => 'images/teachers/epe-aiko-j.jpg', 'video' => 'videos/teachers/epe-aiko-j.mp4'],
-            ['name' => 'Cristina Esmeña',          'position' => 'Teacher I',        'credentials' => '', 'photo' => 'images/teachers/esmena-cristina.jpg', 'video' => 'videos/teachers/esmena-cristina.mp4'],
-            ['name' => 'Abegail Glarian',          'position' => 'Master Teacher I', 'credentials' => '', 'photo' => 'images/teachers/glarian-abegail.jpg', 'video' => 'videos/teachers/glarian-abegail.mp4'],
-            ['name' => 'Mariel H. Ursabia',        'position' => 'Teacher III',      'credentials' => '', 'photo' => 'images/teachers/ursabia-mariel-h.jpg', 'video' => 'videos/teachers/ursabia-mariel-h.mp4'],
-            ['name' => 'Celosteo A. Villaceran',   'position' => 'Teacher II',       'credentials' => '', 'photo' => 'images/teachers/villaceran-celosteo-a.jpg', 'video' => 'videos/teachers/villaceran-celosteo-a.mp4'],
-            ['name' => 'Ednalyn P. Viloria',       'position' => 'Master Teacher I', 'credentials' => '', 'photo' => 'images/teachers/viloria-ednalyn-p.jpg', 'video' => 'videos/teachers/viloria-ednalyn-p.mp4'],
-            ['name' => 'Christine V. Ramirez',     'position' => 'Master Teacher II','credentials' => '', 'photo' => 'images/teachers/ramirez-christine-v.jpg', 'video' => 'videos/teachers/ramirez-christine-v.mp4'],
-            ['name' => 'Leni Rebusit',             'position' => 'Teacher III',      'credentials' => '', 'photo' => 'images/teachers/rebusit-leni.jpg', 'video' => 'videos/teachers/rebusit-leni.mp4'],
-            ['name' => 'Jasmin E. Rosaroso',       'position' => 'Teacher III',      'credentials' => '', 'photo' => 'images/teachers/rosaroso-jasmin-e.jpg', 'video' => 'videos/teachers/rosaroso-jasmin-e.mp4'],
-
-            // Additional Teaching Staff placeholders
-            ['name' => 'Faculty Member', 'position' => '', 'credentials' => '', 'photo' => 'images/teachers/teacher-01.jpg', 'video' => null],
-            ['name' => 'Faculty Member', 'position' => '', 'credentials' => '', 'photo' => 'images/teachers/teacher-04.jpg', 'video' => null],
-            ['name' => 'Faculty Member', 'position' => '', 'credentials' => '', 'photo' => 'images/teachers/teacher-05.jpg', 'video' => null],
-            ['name' => 'Faculty Member', 'position' => '', 'credentials' => '', 'photo' => 'images/teachers/teacher-06.jpg', 'video' => null],
-            ['name' => 'Faculty Member', 'position' => '', 'credentials' => '', 'photo' => 'images/teachers/teacher-07.jpg', 'video' => null],
-            ['name' => 'Faculty Member', 'position' => '', 'credentials' => '', 'photo' => 'images/teachers/teacher-08.jpg', 'video' => null],
-            ['name' => 'Faculty Member', 'position' => '', 'credentials' => '', 'photo' => 'images/teachers/placeholder.jpg', 'video' => null],
-            ['name' => 'Faculty Member', 'position' => '', 'credentials' => '', 'photo' => 'images/teachers/placeholder.jpg', 'video' => null],
+            ['name' => 'Glenny B. Abad',           'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/abad-glenny-b.jpg', 'video' => 'videos/teachers/abad-glenny-b.mp4'],
+            ['name' => 'Juna S. Babatu-on',        'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/babatu-on-juna-s.jpg', 'video' => null],
+            ['name' => 'Rodetha P. Catadman',      'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/catadman-rodetha-p.jpg', 'video' => 'videos/teachers/catadman-rodetha-p.mp4'],
+            ['name' => 'Jeaneueb E. Cellan',       'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/cellan-jeaneueb-e.jpg', 'video' => null],
+            ['name' => 'Diane Syren O. Cuizon',    'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/cuizon-diane-syren-o.jpg', 'video' => null],
+            ['name' => 'Jariz M. Cuyos',           'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/cuyos-jariz-m.jpg', 'video' => null],
+            ['name' => 'Cherryl A. Embalzado',     'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/embalzado-cherryl-a.jpg', 'video' => null],
+            ['name' => 'Julieta L. Embralinag',    'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/embralinag-julieta-l.jpg', 'video' => 'videos/teachers/embralinag-julieta-l.mp4'],
+            ['name' => 'Cristina B. Esmeña',       'position' => 'Teacher I',         'credentials' => '', 'photo' => 'images/teachers/esmena-cristina.jpg', 'video' => 'videos/teachers/esmena-cristina.mp4'],
+            ['name' => 'Abegail B. Glarian',       'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/glarian-abegail.jpg', 'video' => 'videos/teachers/glarian-abegail.mp4'],
+            ['name' => 'Jennifer P. Gonzaga',      'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/gonzaga-jennifer-p.jpg', 'video' => 'videos/teachers/gonzaga-jennifer-p.mp4'],
+            ['name' => 'Alexis C. Heyrosa',        'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/heyrosa-alexis-c.jpg', 'video' => 'videos/teachers/heyrosa-alexis-c.mp4'],
+            ['name' => 'Aiko B. Josol',            'position' => 'Teacher I',         'credentials' => '', 'photo' => 'images/teachers/epe-aiko-j.jpg', 'video' => 'videos/teachers/epe-aiko-j.mp4'],
+            ['name' => 'Julian John N. Limutan',   'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/limutan-julian-john-n.jpg', 'video' => 'videos/teachers/limutan-julian-john-n.mp4'],
+            ['name' => 'Jan Ann P. Montejo',       'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/montejo-jan-ann-p.jpg', 'video' => 'videos/teachers/montejo-jan-ann-p.mp4'],
+            ['name' => 'Bonifacio R. Pino',        'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/pino-bonifacio-r.jpg', 'video' => null],
+            ['name' => 'Christine V. Ramirez',     'position' => 'Master Teacher II', 'credentials' => '', 'photo' => 'images/teachers/ramirez-christine-v.jpg', 'video' => 'videos/teachers/ramirez-christine-v.mp4'],
+            ['name' => 'Leni C. Rebusit',          'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/rebusit-leni.jpg', 'video' => 'videos/teachers/rebusit-leni.mp4'],
+            ['name' => 'Jasmin E. Rosaroso',       'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/rosaroso-jasmin-e.jpg', 'video' => 'videos/teachers/rosaroso-jasmin-e.mp4'],
+            ['name' => 'Mariel H. Ursabia',        'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/ursabia-mariel-h.jpg', 'video' => 'videos/teachers/ursabia-mariel-h.mp4'],
+            ['name' => 'Celosteo A. Villaceran',   'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/villaceran-celosteo-a.jpg', 'video' => 'videos/teachers/villaceran-celosteo-a.mp4'],
+            ['name' => 'Ednalyn P. Viloria',       'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/viloria-ednalyn-p.jpg', 'video' => 'videos/teachers/viloria-ednalyn-p.mp4'],
         ];
     @endphp
 
@@ -96,13 +91,13 @@
             </div>
         </div>
 
-        {{-- 2. NON-TEACHING STAFF SECTION (4 Staff) --}}
+        {{-- 2. NON-TEACHING STAFF SECTION (3 Staff) --}}
         <div class="mb-16">
             <div class="text-center mb-8">
                 <h3 class="text-xl font-bold text-gray-800 uppercase tracking-wide">Non-Teaching Staff</h3>
                 <div class="w-16 h-1 bg-green-700 mx-auto mt-2 rounded-full"></div>
             </div>
-            <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+            <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto">
                 @foreach ($nonTeachingStaff as $staff)
                     @if(!empty($staff['video']))
                         <button type="button"
@@ -120,7 +115,7 @@
                             </div>
                             <div class="px-4 py-3">
                                 <p class="font-semibold text-stone-800 leading-snug">{{ $staff['name'] }}</p>
-                                <p class="text-xs font-semibold text-green-700 uppercase tracking-wide mt-0.5">Non-Teaching Staff</p>
+                                <p class="text-xs font-semibold text-green-700 uppercase tracking-wide mt-0.5">{{ $staff['position'] }}</p>
                             </div>
                         </button>
                     @else
@@ -132,7 +127,7 @@
                             </div>
                             <div class="px-4 py-3">
                                 <p class="font-semibold text-stone-800 leading-snug">{{ $staff['name'] }}</p>
-                                <p class="text-xs font-semibold text-green-700 uppercase tracking-wide mt-0.5">Non-Teaching Staff</p>
+                                <p class="text-xs font-semibold text-green-700 uppercase tracking-wide mt-0.5">{{ $staff['position'] }}</p>
                                 <p class="text-xs text-stone-400 mt-0.5">Video coming soon</p>
                             </div>
                         </div>
