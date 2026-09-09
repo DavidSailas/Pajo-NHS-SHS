@@ -186,12 +186,12 @@
             {{-- Photo panel --}}
             <div class="relative h-72 md:h-auto md:col-span-2 bg-green-950">
                 <img src="{{ asset('images/school-head.jpg') }}"
-                     alt="Glenny E. Laping, School Head of Pajo National High School - SHS"
+                     alt="Dr. Glenny E. Laping, School Head of Pajo National High School - SHS"
                      class="absolute inset-0 h-full w-full object-cover object-top">
                 {{-- subtle brand-color wash to tie the photo into the page palette --}}
                 <div class="absolute inset-0 bg-gradient-to-t from-green-950/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-white/5"></div>
                 <div class="absolute inset-x-0 bottom-0 p-5 md:hidden">
-                    <p class="font-bold text-white text-lg leading-tight drop-shadow">Glenny E. Laping</p>
+                    <p class="font-bold text-white text-lg leading-tight drop-shadow">Dr. Glenny E. Laping</p>
                     <p class="text-sm text-green-100/90">School Head, Pajo National High School - SHS</p>
                 </div>
             </div>
@@ -211,7 +211,7 @@
                 <div class="hidden md:flex items-center gap-4 pt-5 border-t border-gray-100">
                     <span class="h-9 w-1 rounded-full bg-green-700"></span>
                     <div>
-                        <p class="font-bold text-gray-900 text-lg leading-tight">Glenny E. Laping</p>
+                        <p class="font-bold text-gray-900 text-lg leading-tight">Dr. Glenny E. Laping</p>
                         <p class="text-sm text-gray-500">School Head, Pajo National High School - SHS</p>
                     </div>
                 </div>
