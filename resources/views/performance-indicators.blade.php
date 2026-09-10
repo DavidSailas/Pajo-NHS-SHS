@@ -21,8 +21,6 @@
                 <thead>
                     <tr class="bg-green-800 text-white text-sm md:text-base">
                         <th class="px-4 py-3 text-left font-semibold sticky left-0 bg-green-800">Performance Indicators</th>
-                        <th class="px-4 py-3 font-semibold">2021&ndash;2022</th>
-                        <th class="px-4 py-3 font-semibold">2022&ndash;2023</th>
                         <th class="px-4 py-3 font-semibold">2023&ndash;2024</th>
                         <th class="px-4 py-3 font-semibold">2024&ndash;2025</th>
                         <th class="px-4 py-3 font-semibold">2025&ndash;2026</th>
@@ -32,18 +30,18 @@
                 <tbody class="text-sm md:text-base">
                     @php
                         $rows = [
-                            ['label' => 'Enrolment',               'values' => ['783', '688', '429', '294', '327', '454']],
-                            ['label' => 'Graduation Rate',         'values' => ['94.62%', '97.72%', '98.36%', '96.71%', '101.23%', '—']],
-                            ['label' => 'Promotion Rate',          'values' => ['94.62%', '97.72%', '98.36%', '96.71%', '101.23%', '—']],
-                            ['label' => 'Completion Rate',         'values' => ['40.39%', '53.91%', '41.02%', '21.18%', '25.08%', '—']],
-                            ['label' => 'Cohort Survival Rate',    'values' => ['57.35%', '55.17%', '41.70%', '21.90%', '24.77%', '—']],
-                            ['label' => 'Retention Rate',          'values' => ['—', '80.52%', '80.05%', '78.61%', '79.48%', '—']],
-                            ['label' => 'Dropout Rate',            'values' => ['0.11%', '0.29%', '0.00%', '0.61%', '1.42%', '—']],
-                            ['label' => 'Failure Rate',            'values' => ['0', '0', '0', '0', '0', '—']],
-                            ['label' => 'Repetition Rate',         'values' => ['0', '0', '0', '0', '0', '—']],
-                            ['label' => 'Transition Rate',         'values' => ['—', '37.55%', '18.11%', '21.13%', '24.85%', '—']],
-                            ['label' => 'Gross Enrolment Rate',    'values' => ['—', '6.34%', '3.92%', '2.66%', '2.96%', '—']],
-                            ['label' => 'Net Enrolment Rate',      'values' => ['—', '1.33%', '1.00%', '1.17%', '1.84%', '—']],
+                            ['label' => 'Enrolment',               'values' => ['429', '294', '327', '451']],
+                            ['label' => 'Graduation Rate',         'values' => ['98.36%', '96.71%', '101.23%', '—']],
+                            ['label' => 'Promotion Rate',          'values' => ['98.36%', '96.71%', '101.23%', '—']],
+                            ['label' => 'Completion Rate',         'values' => ['41.02%', '21.18%', '25.08%', '—']],
+                            ['label' => 'Cohort Survival Rate',    'values' => ['41.70%', '21.90%', '24.77%', '—']],
+                            ['label' => 'Retention Rate',          'values' => ['80.05%', '78.61%', '79.48%', '—']],
+                            ['label' => 'Dropout Rate',            'values' => ['0.00%', '0.61%', '1.42%', '—']],
+                            ['label' => 'Failure Rate',            'values' => ['0', '0', '0', '—']],
+                            ['label' => 'Repetition Rate',         'values' => ['0', '0', '0', '—']],
+                            ['label' => 'Transition Rate',         'values' => ['18.11%', '21.13%', '24.85%', '—']],
+                            ['label' => 'Gross Enrolment Rate',    'values' => ['3.92%', '2.66%', '2.96%', '—']],
+                            ['label' => 'Net Enrolment Rate',      'values' => ['1.00%', '1.17%', '1.84%', '—']],
                         ];
                     @endphp
 

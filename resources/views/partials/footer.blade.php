@@ -11,10 +11,10 @@
                 </div>
             </div>
             <p class="text-sm text-gray-400 italic mb-4">"Soaring High, Touching Lives, Achieving Excellence"</p>
-            <p class="text-sm">Sangi Road, Pajo, Lapu-Lapu City</p>
+            <p class="text-sm">Sangi New Road, Pajo, Lapu-Lapu City, Cebu</p>
             <p class="text-sm">School ID: 303184</p>
             <p class="text-sm">
-                <a href="mailto:303184@deped.gov.ph" class="hover:text-white transition">303184@deped.gov.ph</a>
+                <a href="mailto:pajonhs.shs@deped.gov.ph" class="hover:text-white transition">pajonhs.shs@deped.gov.ph</a>
             </p>
             <p class="text-sm">Tel. No.: 266-4123</p>
         </div>
@@ -52,9 +52,16 @@
     </div>
 
     <div class="border-t border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
-            <p class="text-xs text-gray-500">&copy; {{ date('Y') }} Pajo National High School - SHS. All rights reserved.</p>
-            <p class="text-xs text-gray-500">An official Department of Education (DepEd) public school website.</p>
+        <div class="max-w-6xl mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+            <p class="text-xs text-gray-500 flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                <span>&copy; {{ date('Y') }} Pajo National High School - SHS. All rights reserved.</span>
+                <span class="hidden md:inline text-gray-700">&bull;</span>
+                <span>An official Department of Education (DepEd) public school website.</span>
+            </p>
+            <p class="text-xs text-gray-500">
+                Site by
+                <a href="https://www.jmsoneit.com/" target="_blank" rel="noopener" class="font-semibold text-gray-400 hover:text-green-400 transition">JMSOneIT</a>
+            </p>
         </div>
     </div>
 </footer>
