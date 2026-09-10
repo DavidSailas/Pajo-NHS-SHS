@@ -18,17 +18,17 @@
             [
                 'title' => 'Mini-Hotel Reception Desk',
                 'desc' => 'Front office simulation area complete with front desk counter and international time zones.',
-                'file' => 'images/facilities/hotel-reception.jpg'
+                'file' => 'images/facilities/hotel-reception.png'
             ],
             [
                 'title' => 'Guest Room & Suite Setup',
                 'desc' => 'Standard bedroom layout for housekeeping bed-making and room servicing practicals.',
-                'file' => 'images/facilities/hotel-bedroom.jpg'
+                'file' => 'images/facilities/hotel-bedroom.png'
             ],
             [
                 'title' => 'Wardrobe & Amenities Area',
                 'desc' => 'Equipped with custom cabinetry, vanity mirror, entertainment unit, and mini-fridge.',
-                'file' => 'images/facilities/hotel-wardrobe.jpg'
+                'file' => 'images/facilities/hotel-wardrobe.png'
             ]
         ];
     @endphp
@@ -124,9 +124,9 @@
     <script>
         (function () {
             const images = [
-                "{{ asset('images/facilities/hotel-reception.jpg') }}",
-                "{{ asset('images/facilities/hotel-bedroom.jpg') }}",
-                "{{ asset('images/facilities/hotel-wardrobe.jpg') }}"
+                "{{ asset('images/facilities/hotel-reception.png') }}",
+                "{{ asset('images/facilities/hotel-bedroom.png') }}",
+                "{{ asset('images/facilities/hotel-wardrobe.png') }}"
             ];
             const titles = [
                 "Mini-Hotel Reception Desk",
