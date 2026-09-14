@@ -192,7 +192,7 @@
                                     <svg class="w-3.5 h-3.5 translate-x-[1px] text-[#12432c] transition-colors duration-300 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                 </div>
                             </div>
-                            <div class="px-4 py-3">
+                            <div class="px-4 py-3 text-center">
                                 <p class="font-semibold text-stone-800 leading-snug">{{ $teacher['name'] }}</p>
                                 @if(!empty($teacher['position']))
                                     <p class="text-xs font-semibold text-green-700 uppercase tracking-wide mt-0.5">{{ $teacher['position'] }}</p>
@@ -206,7 +206,7 @@
                                      onerror="this.onerror=null; this.src='{{ asset('images/teachers/placeholder.jpg') }}';"
                                      class="w-full h-full object-cover object-top">
                             </div>
-                            <div class="px-4 py-3">
+                            <div class="px-4 py-3 text-center">
                                 <p class="font-semibold text-stone-800 leading-snug">{{ $teacher['name'] }}</p>
                                 @if(!empty($teacher['position']))
                                     <p class="text-xs font-semibold text-green-700 uppercase tracking-wide mt-0.5">{{ $teacher['position'] }}</p>

@@ -86,7 +86,6 @@
 </section>
 
     {{-- STATS STRIP (floating card, overlaps hero bottom edge) --}}
-    {{-- TODO: replace these placeholder figures with the school's real numbers --}}
     <div class="max-w-5xl mx-auto px-4 -mt-10 md:-mt-12 relative z-20">
         <div class="bg-white rounded-2xl shadow-xl border border-gray-100 grid grid-cols-2 md:grid-cols-4 divide-y divide-gray-100 md:divide-y-0 md:divide-x">
             <div class="flex items-center gap-3 p-6 justify-center md:justify-start">
