@@ -8,11 +8,12 @@
 <section class="relative bg-green-950 text-white overflow-hidden w-full min-h-[550px] md:min-h-[700px] flex items-center justify-center">
     {{-- Background Video Container --}}
     <div id="promo-video-wrapper" class="absolute inset-0 w-full h-full overflow-hidden bg-green-950 z-0">
-        {{-- Video with sound enabled --}}
-        <video id="promo-video" class="w-full h-full object-cover" preload="auto" playsinline>
-            <source src="{{ asset('videos/promo.mp4') }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        {{-- Centering frame to lock the YouTube iframe dead center --}}
+        <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+            <div id="promo-video" class="relative" style="pointer-events:none;"></div>
+        </div>
+        {{-- Invisible click layer: keeps the user's cursor OFF the real YouTube iframe --}}
+        <div id="promo-video-click-catcher" class="absolute inset-0 z-[5]" style="pointer-events:none;"></div>
         {{-- Consistent professional dark tint overlay --}}
         <div id="promo-video-tint" class="absolute inset-0 bg-black/40 pointer-events-none transition-opacity duration-500"></div>
     </div>
@@ -39,48 +40,138 @@
         </div>
     </div>
 
+    <style>
+        #promo-video iframe {
+            display: block;
+            border: 0;
+            pointer-events: none !important; /* Completely blocks mouse interaction to prevent YouTube overlays */
+        }
+    </style>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         (function () {
-            const video   = document.getElementById('promo-video');
-            const content = document.getElementById('hero-content-overlay');
-            const playBtn = document.getElementById('promo-video-play');
-            const tint    = document.getElementById('promo-video-tint');
+            const YOUTUBE_VIDEO_ID = 'j8LcWFYEmfY';
 
-            // Force video to load and display its first actual frame initially
-            video.currentTime = 0.1;
+            const wrapper       = document.getElementById('promo-video-wrapper');
+            const content       = document.getElementById('hero-content-overlay');
+            const playBtn       = document.getElementById('promo-video-play');
+            const tint          = document.getElementById('promo-video-tint');
+            const clickCatcher  = document.getElementById('promo-video-click-catcher');
+            let player          = null;
+            let playerReady     = false;
+            let isPlaying       = false;
 
-            function playVideo(e) {
-                e.stopPropagation();
-                // Hide text content smoothly when playing/resuming
-                content.classList.add('opacity-0', 'pointer-events-none');
-                tint.classList.remove('bg-black/40');
-                tint.classList.add('bg-black/25');
-                // Enable native player controls and play
-                video.setAttribute('controls', 'true');
-                video.play();
+            const VIDEO_ASPECT  = 16 / 9;
+            const OVERSCAN      = 1.45; // Increased scale multiplier to completely crop out YouTube branding
+
+            function sizeVideoToContainer() {
+                const iframe = wrapper.querySelector('iframe');
+                if (!iframe) return;
+                const w = wrapper.clientWidth;
+                const h = wrapper.clientHeight;
+                if (!w || !h) return;
+                
+                const containerAspect = w / h;
+                let iw, ih;
+
+                if (containerAspect > VIDEO_ASPECT) {
+                    iw = w * OVERSCAN;
+                    ih = iw / VIDEO_ASPECT;
+                } else {
+                    ih = h * OVERSCAN;
+                    iw = ih * VIDEO_ASPECT;
+                }
+
+                iframe.style.width  = iw + 'px';
+                iframe.style.height = ih + 'px';
             }
 
-            playBtn.addEventListener('click', playVideo);
-
-            // Whenever the video is paused, show the text overlay and remove controls
-            video.addEventListener('pause', function () {
-                // Ensure it doesn't trigger when the video naturally ends or resets
-                if (!video.ended) {
-                    content.classList.remove('opacity-0', 'pointer-events-none');
-                    tint.classList.add('bg-black/40');
-                    tint.classList.remove('bg-black/25');
-                    video.removeAttribute('controls');
+            function requestBestQuality() {
+                if (!playerReady) return;
+                const levels = player.getAvailableQualityLevels();
+                if (levels && levels.length) {
+                    player.setPlaybackQuality(levels[0]);
                 }
-            });
-            
-            // When video completely finishes playing, bring back the text overlay and reset to start
-            video.addEventListener('ended', function () {
+            }
+
+            window.onYouTubeIframeAPIReady = function () {
+                player = new YT.Player('promo-video', {
+                    videoId: YOUTUBE_VIDEO_ID,
+                    playerVars: {
+                        autoplay: 0,
+                        controls: 0,
+                        modestbranding: 1,
+                        rel: 0,
+                        playsinline: 1,
+                        disablekb: 1,
+                        fs: 0,
+                        iv_load_policy: 3,
+                        vq: 'hd1080',
+                        origin: window.location.origin
+                    },
+                    events: {
+                        onReady: function () {
+                            playerReady = true;
+                            sizeVideoToContainer();
+                            requestBestQuality();
+                        },
+                        onStateChange: onPlayerStateChange,
+                        onPlaybackQualityChange: requestBestQuality
+                    }
+                });
+            };
+
+            window.addEventListener('resize', sizeVideoToContainer);
+            if (window.ResizeObserver) {
+                new ResizeObserver(sizeVideoToContainer).observe(wrapper);
+            }
+
+            function showOverlay() {
                 content.classList.remove('opacity-0', 'pointer-events-none');
                 tint.classList.add('bg-black/40');
                 tint.classList.remove('bg-black/25');
-                video.removeAttribute('controls');
-                video.currentTime = 0.1;
-            });
+                clickCatcher.style.pointerEvents = 'none';
+            }
+
+            function hideOverlay() {
+                content.classList.add('opacity-0', 'pointer-events-none');
+                tint.classList.remove('bg-black/40');
+                tint.classList.add('bg-black/25');
+                clickCatcher.style.pointerEvents = 'auto';
+            }
+
+            function onPlayerStateChange(event) {
+                if (event.data === YT.PlayerState.PLAYING) {
+                    isPlaying = true;
+                    hideOverlay();
+                    requestBestQuality();
+                } else if (event.data === YT.PlayerState.PAUSED) {
+                    isPlaying = false;
+                    showOverlay();
+                } else if (event.data === YT.PlayerState.ENDED) {
+                    isPlaying = false;
+                    showOverlay();
+                    player.seekTo(0);
+                }
+            }
+
+            function playVideo(e) {
+                e.stopPropagation();
+                if (!playerReady) return;
+                hideOverlay();
+                player.playVideo();
+            }
+
+            function togglePauseFromCatcher() {
+                if (!playerReady) return;
+                if (isPlaying) {
+                    player.pauseVideo();
+                }
+            }
+
+            playBtn.addEventListener('click', playVideo);
+            clickCatcher.addEventListener('click', togglePauseFromCatcher);
         })();
     </script>
 </section>
@@ -187,7 +278,6 @@
                 <img src="{{ asset('images/school-head.jpg') }}"
                      alt="Dr. Glenny E. Laping, School Head of Pajo National High School - SHS"
                      class="absolute inset-0 h-full w-full object-cover object-top">
-                {{-- subtle brand-color wash to tie the photo into the page palette --}}
                 <div class="absolute inset-0 bg-gradient-to-t from-green-950/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-white/5"></div>
                 <div class="absolute inset-x-0 bottom-0 p-5 md:hidden">
                     <p class="font-bold text-white text-lg leading-tight drop-shadow">Dr. Glenny E. Laping</p>
@@ -219,20 +309,11 @@
     </section>
 
     {{-- LATEST NEWS & UPDATES --}}
-    @php
-        $homeNews = $homeNews ?? [];
-        $homeNewsBadge = [
-            'Announcement' => 'bg-orange-100 text-orange-700',
-            'Event'        => 'bg-green-100 text-green-700',
-            'Achievement'  => 'bg-blue-100 text-blue-700',
-            'Advisory'     => 'bg-red-100 text-red-700',
-        ];
-    @endphp
     <section class="max-w-6xl mx-auto px-4 pb-20">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-xs font-bold text-green-700 uppercase tracking-widest bg-green-100/70 px-3 py-1 rounded-full">The Voyager</span>
             <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight mt-3">Latest News & Updates</h2>
-            <p class="text-base text-gray-600 mt-3">Announcements, advisories, and official newsletter issues from Pajo National High School - SHS[cite: 3].</p>
+            <p class="text-base text-gray-600 mt-3">Announcements, advisories, and official newsletter issues from Pajo National High School - SHS.</p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-16">
@@ -318,7 +399,7 @@
         </div>
     </section>
 
-    {{-- FEATURED ACHIEVEMENTS SECTION (DISPLAYING 3 CARDS) --}}
+    {{-- FEATURED ACHIEVEMENTS SECTION --}}
     <section class="bg-gray-50 py-20 border-t border-gray-200/80">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center max-w-2xl mx-auto mb-14">
@@ -328,8 +409,6 @@
             </div>
 
             <div class="grid gap-8 md:grid-cols-3">
-
-                {{-- Achievement Card 1 --}}
                 <button type="button" class="home-achievement-link text-left bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group" data-image="{{ asset('images/achievements/full/2.jpg') }}">
                     <div class="h-52 bg-gray-100 overflow-hidden relative">
                         <img src="{{ asset('images/achievements/thumb/2.jpg') }}" alt="Pajo Athletics Avanti Team wins 14 gold medals in district meet" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -341,7 +420,6 @@
                     </div>
                 </button>
 
-                {{-- Achievement Card 2 --}}
                 <button type="button" class="home-achievement-link text-left bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group" data-image="{{ asset('images/achievements/full/5.jpg') }}">
                     <div class="h-52 bg-gray-100 overflow-hidden relative">
                         <img src="{{ asset('images/achievements/thumb/5.jpg') }}" alt="Pajo SHS champions Clean Seas Against the Climate Crisis coastal cleanup" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -353,7 +431,6 @@
                     </div>
                 </button>
 
-                {{-- Achievement Card 3 --}}
                 <button type="button" class="home-achievement-link text-left bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden hover:shadow-lg transition group" data-image="{{ asset('images/achievements/full/6.jpg') }}">
                     <div class="h-52 bg-gray-100 overflow-hidden relative">
                         <img src="{{ asset('images/achievements/thumb/6.jpg') }}" alt="Pajo SHS undertakes major renovation and facility improvement projects" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -364,10 +441,8 @@
                         <p class="text-sm text-gray-600 leading-relaxed">Ongoing renovation and facility improvement projects keep the campus safe and learner-friendly.</p>
                     </div>
                 </button>
-
             </div>
 
-            {{-- Quick-view lightbox for the 3 featured photos above --}}
             <div id="home-lightbox" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center px-4">
                 <button id="home-lightbox-close" aria-label="Close" class="absolute top-4 right-5 text-white text-3xl leading-none hover:text-green-300">&times;</button>
                 <img id="home-lightbox-image" src="" alt="" class="max-h-[85vh] max-w-full rounded-lg shadow-2xl select-none">
@@ -457,8 +532,6 @@
 
         <div class="max-w-6xl mx-auto px-4 relative z-10">
             <div class="grid gap-10 md:grid-cols-2 items-center">
-
-                {{-- LEFT: context / value prop --}}
                 <div class="text-center md:text-left">
                     <span class="inline-flex items-center gap-2 bg-green-800/80 text-green-200 text-xs font-medium px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-6 border border-green-700/60">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -499,7 +572,6 @@
                     </a>
                 </div>
 
-                {{-- RIGHT: live feed --}}
                 <div class="flex justify-center">
                     <div class="bg-white rounded-2xl shadow-2xl p-3 md:p-4 w-full max-w-[500px]">
                         <iframe
@@ -510,7 +582,6 @@
                         </iframe>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

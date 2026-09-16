@@ -21,28 +21,28 @@
 
         // Teaching Staff, arranged alphabetically by surname
         $teachers = [
-            ['name' => 'Glenny B. Abad',           'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/abad-glenny-b.jpg', 'video' => 'videos/teachers/abad-glenny-b.mp4'],
+            ['name' => 'Glenny B. Abad',           'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/abad-glenny-b.jpg', 'video' => 'https://youtu.be/To1KQkP9ZEQ'],
             ['name' => 'Juna S. Babatu-on',        'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/babatu-on-juna-s.jpg', 'video' => null],
-            ['name' => 'Rodetha P. Catadman',      'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/catadman-rodetha-p.jpg', 'video' => 'videos/teachers/catadman-rodetha-p.mp4'],
+            ['name' => 'Rodetha P. Catadman',      'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/catadman-rodetha-p.jpg', 'video' => 'https://youtu.be/jqxM-6xzNRk'],
             ['name' => 'Jeaneueb E. Cellan',       'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/cellan-jeaneueb-e.jpg', 'video' => null],
             ['name' => 'Diane Syren O. Cuizon',    'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/cuizon-diane-syren-o.jpg', 'video' => null],
             ['name' => 'Jariz M. Cuyos',           'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/cuyos-jariz-m.jpg', 'video' => null],
             ['name' => 'Cherryl A. Embalzado',     'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/embalzado-cherryl-a.jpg', 'video' => null],
-            ['name' => 'Julieta L. Embralinag',    'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/embralinag-julieta-l.jpg', 'video' => 'videos/teachers/embralinag-julieta-l.mp4'],
-            ['name' => 'Cristina B. Esmeña',       'position' => 'Teacher I',         'credentials' => '', 'photo' => 'images/teachers/esmena-cristina.jpg', 'video' => 'videos/teachers/esmena-cristina.mp4'],
-            ['name' => 'Abegail B. Glarian',       'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/glarian-abegail.jpg', 'video' => 'videos/teachers/glarian-abegail.mp4'],
-            ['name' => 'Jennifer P. Gonzaga',      'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/gonzaga-jennifer-p.jpg', 'video' => 'videos/teachers/gonzaga-jennifer-p.mp4'],
-            ['name' => 'Alexis C. Heyrosa',        'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/heyrosa-alexis-c.jpg', 'video' => 'videos/teachers/heyrosa-alexis-c.mp4'],
-            ['name' => 'Aiko B. Josol',            'position' => 'Teacher I',         'credentials' => '', 'photo' => 'images/teachers/epe-aiko-j.jpg', 'video' => 'videos/teachers/epe-aiko-j.mp4'],
-            ['name' => 'Julian John N. Limutan',   'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/limutan-julian-john-n.jpg', 'video' => 'videos/teachers/limutan-julian-john-n.mp4'],
-            ['name' => 'Jan Ann P. Montejo',       'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/montejo-jan-ann-p.jpg', 'video' => 'videos/teachers/montejo-jan-ann-p.mp4'],
+            ['name' => 'Julieta L. Embralinag',    'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/embralinag-julieta-l.jpg', 'video' => 'https://youtu.be/I33jJt-BHrI'],
+            ['name' => 'Cristina B. Esmeña',       'position' => 'Teacher I',         'credentials' => '', 'photo' => 'images/teachers/esmena-cristina.jpg', 'video' => 'https://youtu.be/fpbxF7_N9uo'],
+            ['name' => 'Abegail B. Glarian',       'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/glarian-abegail.jpg', 'video' => 'https://youtu.be/W2gV6XqgMwI'],
+            ['name' => 'Jennifer P. Gonzaga',      'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/gonzaga-jennifer-p.jpg', 'video' => 'https://youtu.be/yx4hjhTPgQw'],
+            ['name' => 'Alexis C. Heyrosa',        'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/heyrosa-alexis-c.jpg', 'video' => 'https://youtu.be/_3o0CMXHckU'],
+            ['name' => 'Aiko B. Josol',            'position' => 'Teacher I',         'credentials' => '', 'photo' => 'images/teachers/epe-aiko-j.jpg', 'video' => 'https://youtu.be/hr_gZIMg5bs'],
+            ['name' => 'Julian John N. Limutan',   'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/limutan-julian-john-n.jpg', 'video' => 'https://youtu.be/oBSlkfSJdM0'],
+            ['name' => 'Jan Ann P. Montejo',       'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/montejo-jan-ann-p.jpg', 'video' => 'https://youtu.be/uJ110zaupZ4'],
             ['name' => 'Bonifacio R. Pino',        'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/pino-bonifacio-r.jpg', 'video' => null],
-            ['name' => 'Christine V. Ramirez',     'position' => 'Master Teacher II', 'credentials' => '', 'photo' => 'images/teachers/ramirez-christine-v.jpg', 'video' => 'videos/teachers/ramirez-christine-v.mp4'],
-            ['name' => 'Leni C. Rebusit',          'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/rebusit-leni.jpg', 'video' => 'videos/teachers/rebusit-leni.mp4'],
-            ['name' => 'Jasmin E. Rosaroso',       'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/rosaroso-jasmin-e.jpg', 'video' => 'videos/teachers/rosaroso-jasmin-e.mp4'],
-            ['name' => 'Mariel H. Ursabia',        'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/ursabia-mariel-h.jpg', 'video' => 'videos/teachers/ursabia-mariel-h.mp4'],
-            ['name' => 'Celosteo A. Villaceran',   'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/villaceran-celosteo-a.jpg', 'video' => 'videos/teachers/villaceran-celosteo-a.mp4'],
-            ['name' => 'Ednalyn P. Viloria',       'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/viloria-ednalyn-p.jpg', 'video' => 'videos/teachers/viloria-ednalyn-p.mp4'],
+            ['name' => 'Christine V. Ramirez',     'position' => 'Master Teacher II', 'credentials' => '', 'photo' => 'images/teachers/ramirez-christine-v.jpg', 'video' => 'https://youtu.be/rhqKjcsz2Sg'],
+            ['name' => 'Leni C. Rebusit',          'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/rebusit-leni.jpg', 'video' => 'https://youtu.be/U3G1rpoxZ5w'],
+            ['name' => 'Jasmin E. Rosaroso',       'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/rosaroso-jasmin-e.jpg', 'video' => 'https://youtu.be/sg3ZLmb2m0Y'],
+            ['name' => 'Mariel H. Ursabia',        'position' => 'Teacher III',       'credentials' => '', 'photo' => 'images/teachers/ursabia-mariel-h.jpg', 'video' => 'https://youtu.be/nJviEzb0nMU'],
+            ['name' => 'Celosteo A. Villaceran',   'position' => 'Teacher II',        'credentials' => '', 'photo' => 'images/teachers/villaceran-celosteo-a.jpg', 'video' => 'https://youtu.be/mNCL8MKo0j8'],
+            ['name' => 'Ednalyn P. Viloria',       'position' => 'Master Teacher I',  'credentials' => '', 'photo' => 'images/teachers/viloria-ednalyn-p.jpg', 'video' => 'https://youtu.be/X9bhx8obKnU'],
         ];
 
         $registrar = collect($nonTeachingStaff)->firstWhere('position', 'Registrar');
@@ -94,7 +94,7 @@
                         @if(!empty($registrar['video']))
                             <button type="button"
                                     class="teacher-card group relative flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-stone-900/5 shadow-sm text-left transition-shadow duration-300 hover:shadow-lg w-full"
-                                    data-video="{{ asset($registrar['video']) }}"
+                                    data-video="{{ $registrar['video'] }}"
                                     data-name="{{ $registrar['name'] }}">
                                 <div class="relative aspect-square overflow-hidden bg-stone-100">
                                     <img src="{{ asset($registrar['photo']) }}" alt="{{ $registrar['name'] }}"
@@ -138,7 +138,7 @@
                         @if(!empty($staff['video']))
                             <button type="button"
                                     class="teacher-card group relative flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-stone-900/5 shadow-sm text-left transition-shadow duration-300 hover:shadow-lg"
-                                    data-video="{{ asset($staff['video']) }}"
+                                    data-video="{{ $staff['video'] }}"
                                     data-name="{{ $staff['name'] }}">
                                 <div class="relative aspect-square overflow-hidden bg-stone-100">
                                     <img src="{{ asset($staff['photo']) }}" alt="{{ $staff['name'] }}"
@@ -182,7 +182,7 @@
                     @if(!empty($teacher['video']))
                         <button type="button"
                                 class="teacher-card group relative flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-stone-900/5 shadow-sm text-left transition-shadow duration-300 hover:shadow-lg"
-                                data-video="{{ asset($teacher['video']) }}"
+                                data-video="{{ $teacher['video'] }}"
                                 data-name="{{ $teacher['name'] }}">
                             <div class="relative aspect-square overflow-hidden bg-stone-100">
                                 <img src="{{ asset($teacher['photo']) }}" alt="{{ $teacher['name'] }}"
@@ -229,7 +229,15 @@
                     <span class="text-2xl leading-none">&times;</span>
                 </button>
             </div>
-            <video id="teacher-modal-video" class="w-full rounded-lg bg-black" controls></video>
+            <div class="relative w-full overflow-hidden rounded-lg bg-black" style="padding-top: 56.25%;">
+                <iframe id="teacher-modal-video"
+                        class="absolute inset-0 h-full w-full"
+                        src=""
+                        title="Faculty introduction video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
@@ -243,29 +251,40 @@
         const modalVideo = document.getElementById('teacher-modal-video');
         const closeBtn = document.getElementById('teacher-modal-close');
 
+        // Converts a YouTube watch/share URL (youtu.be/ID, watch?v=ID, embed/ID)
+        // into a clean, no-related-videos embed URL.
+        const getYouTubeEmbedUrl = (url) => {
+            if (!url) return null;
+            const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+            const videoId = match ? match[1] : null;
+            return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1` : null;
+        };
+
         document.querySelectorAll('.teacher-card').forEach(card => {
             card.addEventListener('click', () => {
                 const videoSrc = card.getAttribute('data-video');
                 const teacherName = card.getAttribute('data-name');
+                const embedUrl = getYouTubeEmbedUrl(videoSrc);
 
-                if (videoSrc) {
+                if (embedUrl) {
                     modalName.textContent = teacherName + "'s Introduction";
-                    modalVideo.src = videoSrc;
+                    modalVideo.src = embedUrl;
                     modal.classList.remove('hidden');
-                    modalVideo.play();
                 }
             });
         });
 
         const closeModal = () => {
             modal.classList.add('hidden');
-            modalVideo.pause();
             modalVideo.src = '';
         };
 
         closeBtn.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
         });
     });
 </script>
