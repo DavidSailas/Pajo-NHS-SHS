@@ -5,49 +5,41 @@
 @section('content')
 
     {{-- HERO SECTION --}}
-<section class="relative bg-green-950 text-white overflow-hidden w-full min-h-[550px] md:min-h-[700px] flex items-center justify-center">
-    {{-- Background Video Container --}}
-    <div id="promo-video-wrapper" class="absolute inset-0 w-full h-full overflow-hidden bg-green-950 z-0">
-        {{-- Centering frame to lock the YouTube iframe dead center --}}
-        <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
-            <div id="promo-video" class="relative" style="pointer-events:none;"></div>
+    <section class="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center">
+
+        <!-- Video Wrapper Container -->
+        <div id="promo-video-wrapper" class="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <!-- YouTube IFrame Target Element -->
+            <div id="promo-video" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         </div>
-        {{-- Invisible click layer: keeps the user's cursor OFF the real YouTube iframe --}}
-        <div id="promo-video-click-catcher" class="absolute inset-0 z-[5]" style="pointer-events:none;"></div>
-        {{-- Consistent professional dark tint overlay --}}
-        <div id="promo-video-tint" class="absolute inset-0 bg-black/40 pointer-events-none transition-opacity duration-500"></div>
-    </div>
 
-    {{-- Text Content / Play Trigger Overlay --}}
-    <div id="hero-content-overlay" class="max-w-5xl mx-auto px-4 text-center relative z-10 transition-opacity duration-500 w-full my-auto">
-        <span class="inline-flex items-center gap-2 bg-green-800/80 text-green-200 text-xs font-medium px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 md:mb-6 border border-green-700/60 shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            Official Senior High School Portal
-        </span>
-        <h1 class="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-4 md:mb-6 leading-tight">Welcome to Pajo National High School <span class="text-emerald-400">- SHS</span></h1>
-        <p class="text-sm sm:text-base md:text-xl text-green-100 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed">Empowering minds, shaping characters, and building pathways to success. Your future starts here with quality public education in Lapu-Lapu City.</p>
+        <!-- Tint Layer / Gradient Overlay -->
+        <div id="promo-video-tint" class="absolute inset-0 bg-black/40 z-10 transition-colors duration-500 pointer-events-none"></div>
 
-        {{-- Play Button Trigger --}}
-        <div class="flex flex-col items-center justify-center">
-            <button type="button" id="promo-video-play"
-                    class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/95 text-green-900 flex items-center justify-center shadow-xl transform hover:scale-110 transition cursor-pointer">
-                <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24">
+        <!-- Click Catcher for Pausing when Playing -->
+        <div id="promo-video-click-catcher" class="absolute inset-0 z-20 cursor-pointer" style="pointer-events: none;"></div>
+
+        <!-- Hero Content Overlay -->
+        <div id="hero-content-overlay" class="relative z-30 text-center px-4 max-w-4xl mx-auto transition-opacity duration-300">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4 drop-shadow-lg">
+                Welcome to Our School
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 drop-shadow-md">
+                Empowering minds, shaping futures, and building excellence together.
+            </p>
+
+            <!-- Play Video Button -->
+            <button id="promo-video-play" class="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg transition-transform hover:scale-105 cursor-pointer pointer-events-auto">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                 </svg>
+                Watch Promo Video
             </button>
-            <p class="mt-4 text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide drop-shadow">Watch Our School Story</p>
-            <p class="text-green-200 text-xs mt-1 drop-shadow">9:32</p>
         </div>
-    </div>
 
-    <style>
-        #promo-video iframe {
-            display: block;
-            border: 0;
-            pointer-events: none !important; /* Completely blocks mouse interaction to prevent YouTube overlays */
-        }
-    </style>
+    </section>
 
+    <!-- YouTube Player API Script & Handler -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         (function () {
@@ -63,8 +55,9 @@
             let isPlaying       = false;
 
             const VIDEO_ASPECT  = 16 / 9;
-            const OVERSCAN      = 1.45; // Increased scale multiplier to completely crop out YouTube branding
+            const OVERSCAN      = 1.45;
 
+            // Function to scale the iframe smoothly to prevent black bars and fill the background
             function sizeVideoToContainer() {
                 const iframe = wrapper.querySelector('iframe');
                 if (!iframe) return;
@@ -87,14 +80,7 @@
                 iframe.style.height = ih + 'px';
             }
 
-            function requestBestQuality() {
-                if (!playerReady) return;
-                const levels = player.getAvailableQualityLevels();
-                if (levels && levels.length) {
-                    player.setPlaybackQuality(levels[0]);
-                }
-            }
-
+            // Global callback required by YouTube IFrame API
             window.onYouTubeIframeAPIReady = function () {
                 player = new YT.Player('promo-video', {
                     videoId: YOUTUBE_VIDEO_ID,
@@ -107,17 +93,16 @@
                         disablekb: 1,
                         fs: 0,
                         iv_load_policy: 3,
-                        vq: 'hd1080',
-                        origin: window.location.origin
+                        // Dynamic origin declaration to resolve CORS/security block issues on live server
+                        origin: window.location.protocol + '//' + window.location.host
                     },
                     events: {
-                        onReady: function () {
+                        onReady: function (event) {
                             playerReady = true;
                             sizeVideoToContainer();
-                            requestBestQuality();
+                            event.target.mute(); // Mute initially to adhere to browser autoplay guidelines
                         },
-                        onStateChange: onPlayerStateChange,
-                        onPlaybackQualityChange: requestBestQuality
+                        onStateChange: onPlayerStateChange
                     }
                 });
             };
@@ -145,14 +130,12 @@
                 if (event.data === YT.PlayerState.PLAYING) {
                     isPlaying = true;
                     hideOverlay();
-                    requestBestQuality();
-                } else if (event.data === YT.PlayerState.PAUSED) {
+                } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
                     isPlaying = false;
                     showOverlay();
-                } else if (event.data === YT.PlayerState.ENDED) {
-                    isPlaying = false;
-                    showOverlay();
-                    player.seekTo(0);
+                    if (event.data === YT.PlayerState.ENDED) {
+                        player.seekTo(0);
+                    }
                 }
             }
 
@@ -160,6 +143,7 @@
                 e.stopPropagation();
                 if (!playerReady) return;
                 hideOverlay();
+                player.unMute(); // Unmute audio when the user clicks to watch the video
                 player.playVideo();
             }
 
