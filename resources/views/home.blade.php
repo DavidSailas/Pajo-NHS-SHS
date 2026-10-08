@@ -101,6 +101,7 @@
                             playerReady = true;
                             sizeVideoToContainer();
                             event.target.mute(); // Mute initially to adhere to browser autoplay guidelines
+                            event.target.setPlaybackQuality('hd1080'); // Request highest available quality
                         },
                         onStateChange: onPlayerStateChange
                     }
@@ -144,6 +145,7 @@
                 if (!playerReady) return;
                 hideOverlay();
                 player.unMute(); // Unmute audio when the user clicks to watch the video
+                player.setPlaybackQuality('hd1080'); // Re-request HD in case Auto downgraded it
                 player.playVideo();
             }
 
